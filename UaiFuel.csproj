@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Endereco\**" />
+    <Content Remove="Views\Endereco\**" />
+    <EmbeddedResource Remove="Views\Endereco\**" />
+    <None Remove="Views\Endereco\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\_Layout_old.cshtml" />
+    <Content Remove="wwwroot\favicon_old.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+	</ItemGroup>
+
+
+
+</Project>

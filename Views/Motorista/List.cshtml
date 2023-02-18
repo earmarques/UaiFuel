@@ -1,0 +1,77 @@
+﻿@model IList<Motorista>
+@using System.Globalization;
+
+<div class="list_container">
+    <h2 style="margin-bottom:2rem;">Motoristas Cadastrados</h2>
+    @if (ViewBag.ErrorMessages != null)
+    {
+        @Html.Raw(ViewBag.ErrorMessages);
+    }
+    else if (ViewBag.Message != null)
+    {
+        <div class="@ViewBag.CssClass">
+            @ViewBag.Message
+        </div>
+    }
+    <table class="table table-bordered table-hover table-sm" id="sortTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>CPF</th>
+                <th>Crédito</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        @foreach (Motorista m in Model)
+        {
+            <tr>
+                <td>@m.Id</td>
+                <td>@m.Nome</td>
+                <td>@m.Status</td>
+                <td>@m.CPF</td>
+                <td>R$ @Convert.ToDecimal(decimal.Round(m.Credito, 2, MidpointRounding.AwayFromZero), new CultureInfo("pt-BR")).ToString()</td>
+                <td>
+                    <a class="btn btn-sm btn-danger"
+                       href="/motorista/delete/@m.Id" title="Apagar"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-sm btn-warning"
+                       href="/motorista/update/@m.Id" title="Editar"><i class="fas fa-edit"></i></a>
+                </td>
+            </tr>
+
+        }
+
+        <tfoot>
+            <tr>
+                <td>Id</td>
+                <td>Nome</td>
+                <td>Status</td>
+                <td>CPF</td>
+                <td>Crédito</td>
+                <td>Ação</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<a class="btn btn-primary" href="/motorista/create"><i class="fas fa-plus"></i>     Novo Motorista</a>
+
+<script>
+    $('#sortTable').DataTable({
+        "paging": true,
+        "ordering": true,
+        "info": false,
+        "language": {
+            "lengthMenu": "Exibir _MENU_ registros",
+            "zeroRecords": "Nenhum registro encontrado",
+            "info": "Quantidade de páginas _PAGE_ a _PAGES_",
+            "infoEmpty": "Nenhum registro encontrado",
+            "infoFiltered": "",
+            "search": "Filtro:", "paginate": {
+                "first": "Primeiro",
+                "last": "Último",
+                "next": "Próximo",
+                "previous": "Anterior"
+            },
+        }
+    });</script>

@@ -1,0 +1,46 @@
+﻿
+@model UserViewModel
+
+<form asp-controller="Login" asp-action="Login" method="POST">
+    <div class="container" style="width: 100%;margin-top: 5rem;">
+        <h2 style="margin-bottom:-7rem;">Acesso ao Sistema</h2>
+        <div class="wrapper">
+            @if (ViewBag.Message != null)
+            { 
+                <div class="@ViewBag.CssClass">
+                    @ViewBag.Message
+                </div>
+            }
+            <div class="content">
+                <div class="tab_wrap" style="display: block;">
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label" asp-for="Login">
+                            Login
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-sm-6">
+                            <input asp-for="Login" class="form-control input-sm mb-3" />
+                            <span asp-validation-for="Login"></span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label" asp-for="Senha">
+                            Senha
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-sm-6">
+                            <input asp-for="Senha" class="form-control input-sm mb-3" />
+                            <span asp-validation-for="Senha"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button style="margin-top:2rem;" class="btn btn-primary">Logar</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+

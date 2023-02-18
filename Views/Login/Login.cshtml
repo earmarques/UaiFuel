@@ -1,0 +1,34 @@
+﻿
+@model UserViewModel
+
+@{ 
+    Layout = "/Views/Shared/LoginLayout.cshtml";
+}
+<form asp-controller="Login" asp-action="Login" method="POST" autocomplete="off">
+
+    <div class="text-field">
+        <input asp-for="Login" />
+        <span></span>
+        <label>Usuário</label>
+    </div>
+
+    <div class="text-field">
+        <input asp-for="Senha" class="form-control input-sm mb-3" />
+        <span></span>
+        <label>Senha</label>
+    </div>
+
+    <span class="required" asp-validation-for="Login"></span>
+    <br />
+    <span class="required" asp-validation-for="Senha"></span>
+    @if (ViewBag.Message != null)
+    {<span class="required">@ViewBag.Message</span>}
+    <br />
+    <br />
+    <input type="submit" value="Login" />
+</form>
+
+
+
+
+

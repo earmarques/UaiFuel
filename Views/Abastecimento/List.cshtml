@@ -1,0 +1,89 @@
+﻿
+@model IList<Abastecimento>
+@using System.Globalization;
+
+<div class="list_container">
+    <h2 style="margin-bottom:2rem;">Abastecimentos Registrados</h2>
+    @if (ViewBag.ErrorMessages != null)
+    {
+        @Html.Raw(ViewBag.ErrorMessages);
+    }
+    else if (ViewBag.Message != null)
+    {
+        <div class="@ViewBag.CssClass">
+            @ViewBag.Message
+        </div>
+    }
+    <table class="table table-bordered table-hover table-sm" id="sortTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Data</th>
+                <th>ValorTotal</th>
+                <th>Posto</th>
+                <th>Motorista</th>
+                <th>Veículo</th>
+                <th>Status</th>
+                <th class="col-sm-1">Ação</th>
+            </tr>
+        </thead>
+
+        @foreach (Abastecimento a in Model)
+        {
+            <tr>
+                <td>@a.Id</td>
+                <td>@a.DataCriacao.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>R$ @Convert.ToDecimal(decimal.Round(@a.ValorTotal, 2, MidpointRounding.AwayFromZero), new CultureInfo("pt-BR")).ToString()</td>
+                <td title="id = @a.Posto.Id">@a.Posto.Nome</td>
+                <td title="id = @a.Motorista.Id">@a.Motorista.Nome</td>
+                <td>@a.Veiculo.Placa</td>
+                <td>@a.Status.Descricao</td>
+                <td>
+                    <a class="btn btn-sm btn-danger"
+                       href="/abastecimento/delete/@a.Id" title="Apagar"><i class="fas fa-trash-alt"></i></a>
+
+                    <a class="btn btn-sm btn-warning"
+                       href="/abastecimento/update/@a.Id" title="Editar"><i class="fas fa-edit"></i></a>
+                </td>
+            </tr>
+        }
+
+        <tfoot>
+            <tr>
+                <td>Id</td>
+                <td>Data</td>
+                <td>ValorTotal</td>
+                <td>Posto</td>
+                <td>Motorista</td>
+                <td>Veículo</td>
+                <td>Status</td>
+                <td>Ação</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<a class="btn btn-primary" href="/abastecimento/create/"><i class="fas fa-plus"></i>   Novo Abastecimento</a>
+
+<script>
+    $('#sortTable').DataTable({
+    "paging":   true,
+    "ordering": true,
+    "info":     false,
+    "language":{
+        "lengthMenu":     "Exibir _MENU_ registros",
+        "zeroRecords": "Nenhum registro encontrado",
+        "info": "Quantidade de páginas _PAGE_ a _PAGES_",
+        "infoEmpty": "Nenhum registro encontrado",
+        "infoFiltered": "",
+        "search":"Filtro:","paginate": {
+                                "first":      "Primeiro",
+                                "last":       "Último",
+                                "next":       "Próximo",
+                                "previous": "Anterior"
+                            },
+        }
+    });
+
+ </script>
+

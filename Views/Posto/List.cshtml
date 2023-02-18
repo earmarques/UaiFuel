@@ -1,0 +1,77 @@
+﻿
+@model IList<Posto>
+
+<div class="list_container">
+    <h2 style="margin-bottom:2rem;">Postos Cadastrados</h2>
+    @if (ViewBag.ErrorMessages != null)
+    {
+        @Html.Raw(ViewBag.ErrorMessages);
+    }
+    else if (ViewBag.Message != null)
+    {
+        <div class="@ViewBag.CssClass">
+            @ViewBag.Message
+        </div>
+    }
+    <table class="table table-bordered table-hover table-sm" id="sortTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>CNPJ</th>
+                <th>Telefone</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        @foreach (Posto p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Nome</td>
+                <td>@p.Status</td>
+                <td>@p.CNPJ</td>
+                <td>@p.Telefone</td>
+                <td>
+                    <a class="btn btn-sm btn-danger"
+                       href="/posto/delete/@p.Id" title="Apagar"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-sm btn-warning"
+                       href="/posto/update/@p.Id" title="Editar"><i class="fas fa-edit"></i></a>
+                </td>
+            </tr>
+        }
+        <tfoot>
+            <tr>
+                <td>Id</td>
+                <td>Nome</td>
+                <td>Status</td>
+                <td>CNPJ</td>
+                <td>Telefone</td>
+                <td>Ação</>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<a class="btn btn-primary" href="/posto/create"><i class="fas fa-plus"></i>     Novo Posto</a>
+
+<script>
+$('#sortTable').DataTable({
+    "paging":   true,
+    "ordering": true,
+    "info":     false,
+    "language":{
+        "lengthMenu":     "Exibir _MENU_ registros",
+        "zeroRecords": "Nenhum registro encontrado",
+        "info": "Quantidade de páginas _PAGE_ a _PAGES_",
+        "infoEmpty": "Nenhum registro encontrado",
+        "infoFiltered": "",
+        "search":"Filtro:","paginate": {
+                                "first":      "Primeiro",
+                                "last":       "Último",
+                                "next":       "Próximo",
+                                "previous":   "Anterior"
+        },
+    }
+});</script>
+
+

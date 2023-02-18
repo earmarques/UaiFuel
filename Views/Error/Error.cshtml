@@ -1,0 +1,27 @@
+﻿
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+@using UaiFuel.Models.ExceptionCore;
+
+<h1 class="text-danger">Error.</h1>
+
+
+@{
+    string json = HttpContextAccessor.HttpContext.Session.GetString("exp");
+    if (json != null)
+    {
+        string msg = "Mensagem de  Erro";
+        Exception exp = JsonSerializer.Deserialize<Exception>(json);
+
+        if (exp.GetType() == typeof(AppException))
+        {
+            msg = ((AppException)exp).UserErrorDescription;            
+        }
+        else
+        {
+            msg = exp.Message;
+        }
+        <h4 class="text-danger"> @msg </h4>
+    }
+}

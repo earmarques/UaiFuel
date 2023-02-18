@@ -1,0 +1,147 @@
+﻿
+@model UpdateMotoristaViewModel
+
+<form asp-controller="Motorista" asp-action="Update" method="POST">
+    <div class="container">
+        <div class="wrapper">
+            <h2 style="margin-bottom:2rem;">Edição de Motorista</h2>
+            @if (ViewBag.ErrorMessages != null)
+            {
+                @Html.Raw(ViewBag.ErrorMessages);
+            }
+            else if (ViewBag.Message != null)
+            {
+                <div class="@ViewBag.CssClass">
+                    @ViewBag.Message
+                </div>
+            }
+            <div class="tabs">
+                <ul>
+                    <li class="active">
+                        <span class="icon"><i class="fas fa-list-ul"></i></span>
+                        <span class="text">Dados Gerais</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fas fa-at"></i></span>
+                        <span class="text">E-mails</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content">
+
+                <!-- Dados Gerais     ------------------------------------------------------------------------->
+
+                <div class="tab_wrap" style="display: block;">
+                    <div class="title">
+
+                        Dados Gerais
+                    </div>
+                    <div class="tab_content">
+                        <br />
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="Nome">
+                                Nome
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="Nome" class="form-control input-sm mb-3" />
+                                <span asp-validation-for="Nome"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="Login">
+                                Login
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input readonly="readonly" asp-for="Login" class="form-control" />
+                                <span asp-validation-for="Login"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label">
+                                Status
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <select asp-for="CodigoStatus" class="custom-select form-select-lg mb-3">
+                                    <option value="">Selecione</option>
+                                    @foreach (var status in @Model.Statuses)
+                                    {
+                                        <option value="@status.Value">@status.Text</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="CodigoStatus"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="CPF">
+                                CPF
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="CPF" class="form-control input-sm mb-3" />
+                                <span asp-validation-for="CPF"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="Credito">
+                                Crédito R$
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="Credito" class="form-control input-sm mb-3" />
+                                <span asp-validation-for="Credito"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--    E-mails    ---------------------------------------------------------------------------->
+
+                <div class="tab_wrap" style="display: none;">
+                    <div class="title">
+                        E-mails
+                    </div>
+
+                    <div class="tab_content">
+                        <div class="row">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Endereço</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                @foreach (Email email in Model.Emails)
+                                {
+                                    <tr>
+                                        <td>@email.Endereco</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-danger" href="/motorista/removerEmail?id=@Model.Id&endereco=@email.Endereco">Remover</a>
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td>
+                                        <input asp-for="NovoEmail" class="form-control input-sm mb-3" />
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary">Adicionar E-mail</button>
+                                    </td>
+                                <tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button style="margin-top:2rem;" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>
+

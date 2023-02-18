@@ -1,0 +1,49 @@
+﻿
+
+@model EstadoCidadeViewModel
+
+<form asp-controller="Endereco" asp-action="GetCidade" method="POST">
+    <h2>Cascading Dropdownlist</h2>
+    <table>
+        <tr>
+            <td>
+                <label>Estado</label>
+            </td>
+            <td>
+                @Html.DropDownListFor(e => e.NomesEstado, Model.NomesEstado, "__ Selecione __", new { @id = "estadoIdComponent" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Cidades</label>
+            </td>
+            <td id="Cidades">
+                <select><option>__ Selecione__</option></select>
+</td>
+        </tr>
+    </table>
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#estadoIdComponent').change(function () {
+            $.ajax({
+                type: "post",
+                url: "/Endereco/GetCidade",
+                data: { uf: $('#estadoIdComponent').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    console.log(data);
+                    var cidade = "<select id='cidadeIdComponent'>";
+                    cidade = cidade + '<option value="">--Selecione--</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        cidade = cidade + '<option value=' + data[i][0] + '>' + data[i][1] + '</option>';
+                    }
+                    cidade = cidade + '</select>';
+                    $('#Cidades').html(cidade);
+                }
+            });
+        });
+    });
+</script>

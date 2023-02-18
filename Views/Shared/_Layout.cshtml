@@ -1,0 +1,115 @@
+﻿
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor accessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+@using static UaiFuel.Models.Utils.FrontUtil;
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <script src="https://kit.fontawesome.com/d2b190d7ef.js" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - UaiFuel</title>
+
+    <script src="https://kit.fontawesome.com/d2b190d7ef.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+
+</head>
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header__toggle">
+            <i class="fas fa-bars" id="header-toggle"></i>
+        </div>
+        <div class="header__img">
+            @{                
+                UserViewModel user = GetFromSession<UserViewModel>(accessor.HttpContext, "user");
+                if (user != null)
+                {
+                    <span style="margin-right:20px">Bem-vindo @user.Nome</span>
+                }                
+            }
+            <i class="fas fa-user"></i>
+        </div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="/home/index" class="nav__logo" style="text-decoration: none;">
+                    <i class="fas fa-gas-pump nav__logo-icon"></i>
+                    <span class="nav__logo-name">UAI FUEL</span>
+                </a>
+
+                <div class="nav__list">
+
+                    <a href="/motorista/list" class="nav__link">
+                        <i class="fas fa-address-card nav__icon"></i>
+                        <span class="nav__name">Motorista</span>
+                    </a>
+
+                    <a href="/posto/list" class="nav__link">
+                        <i class="fas fa-gas-pump nav__icon"></i>
+                        <span class="nav__name">Posto</span>
+                    </a>
+
+                    <a href="/abastecimento/list" class="nav__link">
+                        <i class="fas fa-hand-holding-water nav__icon"></i>
+                        <span class="nav__name">Abastecimento</span>
+                    </a>
+
+                    <a href="/abastecimento/pesquisar" class="nav__link">
+                        <i class="fas fa-search nav__icon"></i>
+                        <span class="nav__name">Pesquisa</span>
+                    </a>
+
+                    <a href="/veiculo/list" class="nav__link">
+                        <i class="fas fa-truck-moving nav__icon"></i>
+                        <span class="nav__name">Veículo</span>
+                    </a>
+
+                    <a href="/combustivel/list" class="nav__link">
+                        <i class="fas fa-oil-can  nav__icon"></i>
+                        <span class="nav__name">Combustível</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <a href="/login/logout" class="nav__link">
+                <i class="fas fa-sign-out-alt nav__icon"></i>
+                <span class="nav__name">Logout</span>
+            </a>
+
+        </nav>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="foot_container">
+            &copy; 2021 - UaiFuel - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/index.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

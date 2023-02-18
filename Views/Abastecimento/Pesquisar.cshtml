@@ -1,0 +1,179 @@
+﻿
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor accessor
+@using System.Globalization;
+
+
+@model PesquisaAbastecimentoViewModel
+
+
+<form asp-controller="Abastecimento" asp-action="Pesquisar" method="POST">
+    <div class="container">
+        <div class="wrapper">
+            <h2 style="margin-bottom:2rem;">Pesquisa de Abastecimento</h2>
+            @if (ViewBag.ErrorMessages != null)
+            {
+                @Html.Raw(ViewBag.ErrorMessages);
+            }
+            else if (ViewBag.Message != null)
+            {
+                <div class="@ViewBag.CssClass">
+                    @ViewBag.Message
+                </div>
+            }
+            <div class="content">
+                <div class="tab_wrap" style="display: block;">
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label">
+                            Posto
+                        </label>
+                        <div class="col-sm-4">
+                            <select asp-for="PostoId" class="custom-select form-select-lg mb-3">
+                                <option value="0">Selecione</option>
+                                @foreach (var posto in @Model.Postos)
+                                {
+                                    <option value="@posto.Id.ToString()">@posto.Nome</option>
+                                }
+                            </select>
+                        </div>
+
+                        <label class="col-md-2 col-form-label">
+                            Status
+                        </label>
+                        <div class="col-sm-4">
+                            <select asp-for="CodigoStatus" class="custom-select form-select-lg mb-3">
+                                <option value="">Selecione</option>
+                                @foreach (var status in @Model.Statuses)
+                                {
+                                    <option value="@status.Value">@status.Text</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label">
+                            Motorista
+                        </label>
+                        <div class="col-sm-4">
+                            <select asp-for="MotoristaId" class="custom-select form-select-lg mb-3">
+                                <option value="0">Selecione</option>
+                                @foreach (var motorista in @Model.Motoritas)
+                                {
+                                    <option value="@motorista.Id.ToString()">@motorista.Nome</option>
+                                }
+                            </select>
+                        </div>
+
+                        <label class="col-md-2 col-form-label">
+                            Veículo
+                        </label>
+                        <div class="col-sm-4">
+                            <select asp-for="VeiculoPlaca" class="custom-select form-select-lg mb-3">
+                                <option value="0">Selecione</option>
+                                @foreach (var veiculo in @Model.Veiculos)
+                                {
+                                    <option value="@veiculo.Placa">@veiculo.Placa</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label">
+                            Combustível
+                        </label>
+                        <div class="col-sm-2">
+                            <input asp-for="NomeCombustivel" class="form-control input-sm mb-3" />
+                        </div>
+
+                        <label class="col-md-2 col-form-label">
+                            Data Inicial
+                        </label>
+                        <div class="col-sm-2">
+                            <input asp-for="StrDataInicial" placeholder="dd/MM/yyyy" class="form-control input-sm mb-3" />
+                        </div>
+
+                        <label class="col-md-2 col-form-label">
+                            Data Final
+                        </label>
+                        <div class="col-sm-2">
+                            <input asp-for="StrDataFinal" placeholder="dd/MM/yyyy" class="form-control input-sm mb-3" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper_abastecer">
+            <button id="pesquisar" class="btn btn-primary">Pesquisar</button>
+        </div>
+
+        @{
+            if (Model.Abastecimentos.Count > 0)
+            {
+                <div class="wrapper wrapper_abastecer">
+                    <h4>Abastecimentos Pesquisados</h4>
+                    <table class="table table-bordered table-hover table-sm" id="sortTable">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Data</th>
+                                <th>ValorTotal</th>
+                                <th>Posto</th>
+                                <th>Motorista</th>
+                                <th>Veículo</th>
+                                <th>Status</th>
+                                <th class="col-sm-1">Ação</th>
+                            </tr>
+                        </thead>
+
+                        @foreach (Abastecimento a in Model.Abastecimentos)
+                        {
+                            <tr>
+                                <td>@a.Id</td>
+                                <td>@a.DataCriacao.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>R$ @Convert.ToDecimal(decimal.Round(@a.ValorTotal, 2, MidpointRounding.AwayFromZero), new CultureInfo("pt-BR")).ToString()</td>
+                                <td title="id = @a.Posto.Id">@a.Posto.Nome</td>
+                                <td title="id = @a.Motorista.Id">@a.Motorista.Nome</td>
+                                <td>@a.Veiculo.Placa</td>
+                                <td>@a.Status.Descricao</td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger"
+                                       href="/abastecimento/delete/@a.Id" title="Apagar"><i class="fas fa-trash-alt"></i></a>
+
+                                    <a class="btn btn-sm btn-warning"
+                                       href="/abastecimento/update/@a.Id" title="Editar"><i class="fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                        <tfoot>
+                            <tr>
+                                <td>Id</td>
+                                <td>Data</td>
+                                <td>ValorTotal</td>
+                                <td>Posto</td>
+                                <td>Motorista</td>
+                                <td>Veículo</td>
+                                <td>Status</td>
+                                <td>Ação</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            }
+            else
+            {
+                if (Model.RealizouPesquisa)
+                {
+                    <div class="wrapper wrapper_abastecer">
+                        <h5><i>Nenhum Registro Encontrado!</i></h5>
+                    </div>
+                }
+            }
+        }
+</form>
+

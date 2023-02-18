@@ -1,0 +1,72 @@
+﻿
+@model IList<Combustivel>
+
+<div class="list_container">
+    <h2 style="margin-bottom:2rem;">Combustíveis Cadastrados</h2>
+    @if (ViewBag.ErrorMessages != null)
+    {
+        @Html.Raw(ViewBag.ErrorMessages);
+    }
+    else if (ViewBag.Message != null)
+    {
+        <div class="@ViewBag.CssClass">
+            @ViewBag.Message
+        </div>
+    }
+    <table class="table table-bordered table-hover table-sm" id="sortTable">
+        <thead>
+            <tr>
+                <th>Posto</th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+
+        @foreach (Combustivel c in Model)
+        {
+            <tr>
+                <td>@c.Posto.Nome</td>
+                <td>@c.Nome</td>
+                <td>@c.Status</td>
+                <td>
+                    <a class="btn btn-sm btn-danger"
+                       href="/combustivel/delete/@c.Id" title="Apagar"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-sm btn-warning"
+                       href="/combustivel/update/@c.Id" title="Editar"><i class="fas fa-edit"></i></a>
+                </td>
+            </tr>
+        }
+
+        <tfoot>
+            <tr>
+                <td>Posto</td>
+                <td>Nome</td>
+                <td>Status</td>
+                <td>Ação</>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<a class="btn btn-primary" href="/combustivel/create"><i class="fas fa-plus"></i>   Novo Combustível</a>
+
+<script>$('#sortTable').DataTable({
+    "paging":   true,
+    "ordering": true,
+    "info":     false,
+    "language":{
+        "lengthMenu":     "Exibir _MENU_ registros",
+        "zeroRecords": "Nenhum registro encontrado",
+        "info": "Quantidade de páginas _PAGE_ a _PAGES_",
+        "infoEmpty": "Nenhum registro encontrado",
+        "infoFiltered": "",
+        "search":"Filtro:","paginate": {
+                                "first":      "Primeiro",
+                                "last":       "Último",
+                                "next":       "Próximo",
+                                "previous":   "Anterior"
+        },
+    }
+});</script>
+

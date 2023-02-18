@@ -1,0 +1,277 @@
+﻿
+@model UpdatePostoViewModel
+
+<form asp-controller="Posto" asp-action="Update" method="POST">
+    <div class="container">
+        <div class="wrapper">
+            <h2 style="margin-bottom:2rem;">Edição de Posto</h2>
+            @if (ViewBag.ErrorMessages != null)
+            {
+                @Html.Raw(ViewBag.ErrorMessages);
+            }
+            else if (ViewBag.Message != null)
+            {
+                <div class="@ViewBag.CssClass">
+                    @ViewBag.Message
+                </div>
+            }
+            <div class="tabs">
+                <ul>
+                    <li class="active">
+                        <span class="icon"><i class="fas fa-list-ul"></i></span>
+                        <span class="text">Dados Gerais</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fas fa-map-marked-alt"></i></span>
+                        <span class="text">Endereço</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fas fa-at"></i></span>
+                        <span class="text">E-mails</span>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="content">
+
+                <!-- Dados Gerais     ------------------------------------------------------------------------->
+
+                <div class="tab_wrap" style="display: block;">
+                    <div class="title">
+                        Dados Gerais
+                    </div>
+                    <div class="tab_content">
+                        <br />
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="Nome">
+                                Nome
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="Nome" class="form-control" />
+                                <span asp-validation-for="Nome"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="Login">
+                                Login
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input readonly="readonly" asp-for="Login" class="form-control" />
+                                <span asp-validation-for="Login"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="CodigoStatus">
+                                Status
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <select asp-for="CodigoStatus" class="form-control">
+                                    <option value="">Selecione</option>
+                                    @foreach (var status in @Model.Statuses)
+                                    {
+                                        <option value="@status.Value">@status.Text</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="CodigoStatus"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="CNPJ">
+                                CNPJ
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="CNPJ" class="form-control" />
+                                <span asp-validation-for="CNPJ"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="Telefone">
+                                Telefone
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="Telefone" class="form-control" />
+                                <span asp-validation-for="Telefone"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--    Endereço    --------------------------------------------------------------------------->
+
+                <div class="tab_wrap" style="display: none;">
+                    <div class="title">
+                        Endereço
+                    </div>
+                    <div class="tab_content">
+                        <br />
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="Localidade">
+                                Localidade
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="Localidade" class="form-control" />
+                                <span asp-validation-for="Localidade"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="CEP">
+                                CEP
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input asp-for="CEP" class="form-control" />
+                                <span asp-validation-for="CEP"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="EstadoUF">
+                                Estado
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <select asp-for="EstadoUF" class="form-control">
+                                    <option value="">Selecione</option>
+                                    @foreach (var estado in @Model.Estados)
+                                    {
+                                        <option value="@estado.Value">@estado.Text</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="EstadoUF"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-md-3 col-form-label" asp-for="CidadeId">
+                                Cidade
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <select asp-for="CidadeId" class="form-control">
+                                    <option value="">Selecione</option>
+                                    @foreach (var cidade in @Model.Cidades)
+                                    {
+                                        <option value="@cidade.Value">@cidade.Text</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="CidadeId"></span>
+                                <input type="hidden" asp-for="@Model.CidadeIdHidden" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--    E-mails    ---------------------------------------------------------------------------->
+
+                <div class="tab_wrap" style="display: none;">
+                    <div class="title">
+                        E-mails
+                    </div>
+
+                    <div class="tab_content">
+
+                        <div class="row">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Endereço</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                @foreach (Email email in Model.Emails)
+                                {
+                                    <tr>
+                                        <td>@email.Endereco</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-danger" href="/posto/removerEmail?id=@Model.Id&endereco=@email.Endereco">Remover</a>
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td>
+                                        <input asp-for="NovoEmail" class="form-control input-sm mb-3" />
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary">Adicionar E-mail</button>
+                                    </td>
+                                <tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button style="margin-top:2rem;" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#EstadoUF').change(function () {
+            $.ajax({
+                type: "post",
+                url: "/Posto/GetCidade",
+                data: { uf: $('#EstadoUF').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var cidade = '<option value="">Selecione</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        cidade = cidade + '<option value=' + data[i][0] + '>' + data[i][1] + '</option>';
+                    }
+                    cidade = cidade + '</select>';
+                    $('#CidadeId').html(cidade);
+                }
+            });
+        });
+    });
+
+
+    $(document).ready(function () {
+        let uf = $('#EstadoUF').val();
+        if (uf !== "") {
+            // Carrega cidades do estado
+            $.ajax({
+                type: "post",
+                url: "/Posto/GetCidade",
+                data: { uf: $('#EstadoUF').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var cidade = '<option value="">Selecione</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        cidade = cidade + '<option value=' + data[i][0] + '>' + data[i][1] + '</option>';
+                    }
+                    cidade = cidade + '</select>';
+                    $('#CidadeId').html(cidade);
+                }
+            });
+        }
+    });
+
+
+    $(window).on('load', function () {
+        $('#CidadeId').val($('#CidadeIdHidden').val()).change();
+    });
+
+
+    $(document).ready(function () {
+        $('#CidadeId').change(function () {
+            $('#CidadeIdHidden').val($('#CidadeId').val());
+        });
+    });
+
+</script>
+

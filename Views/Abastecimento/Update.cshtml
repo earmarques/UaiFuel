@@ -1,0 +1,204 @@
+﻿
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor accessor
+@using Microsoft.AspNetCore.Http;
+@using System.Text.Json;
+@using static UaiFuel.Models.Utils.FrontUtil;
+
+
+@model UpdateAbastecimentoViewModel
+
+
+<form asp-controller="Abastecimento" asp-action="Update" method="POST">
+    <div class="container">
+        <div class="wrapper">
+            <h2 style="margin-bottom:2rem;">Edição de Abastecimento</h2>
+            @if (ViewBag.ErrorMessages != null)
+            {
+                @Html.Raw(ViewBag.ErrorMessages);
+            }
+            else if (ViewBag.Message != null)
+            {
+                <div class="@ViewBag.CssClass">
+                    @ViewBag.Message
+                </div>
+            }
+            <div class="content">
+                <div class="tab_wrap" style="display: block;">
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label">
+                            Posto
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-sm-4">
+                            <input readonly="readonly" asp-for="NomePosto" class="form-control input-sm mb-3" />
+                            <input type="hidden" asp-for="PostoId" />                            
+                        </div>
+
+                        <label class="col-md-2 col-form-label">
+                            Status
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-sm-4">
+                            <select asp-for="CodigoStatus" class="custom-select form-select-lg mb-3">
+                                @foreach (var status in @Model.Statuses)
+                                {
+                                    <option value="@status.Value">@status.Text</option>
+                                }
+                            </select>
+                            <span asp-validation-for="CodigoStatus"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label">
+                            Motorista
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-sm-4">
+                            <input readonly="readonly" asp-for="NomeMotorista" class="form-control input-sm mb-3" />
+                            <input type="hidden" asp-for="MotoristaId" />
+                            <span asp-validation-for="MotoristaId"></span>
+                        </div>
+
+                        <label class="col-md-2 col-form-label" asp-for="CupomFiscal">
+                            CupomFiscal
+                        </label>
+                        <div class="col-sm-4">
+                            <input asp-for="CupomFiscal" class="form-control input-sm mb-3" />
+                            <span asp-validation-for="CupomFiscal"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group mb-3 row">
+                        <label class="col-md-2 col-form-label">
+                            Veículo
+                            <span class="required">*</span>
+                        </label>
+                        <div class="col-sm-4">
+                            <input readonly="readonly" asp-for="VeiculoPlaca" class="form-control input-sm mb-3" />                                                        
+                            <span asp-validation-for="VeiculoPlaca"></span>
+                        </div>
+
+                        <label class="col-md-2 col-form-label" asp-for="ValorTotal">
+                            ValorTotal &nbsp; R$ 
+                        </label>
+                        <div class="col-sm-4">
+                            <input readonly="readonly" asp-for="ValorTotal" class="form-control input-sm mb-3" />
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper_abastecer">
+            <button id="abastecer" class="btn btn-primary">Salvar Abastecimento</button>
+        </div>
+
+        <div class="wrapper wrapper_abastecer">
+            <h4>Combustíveis do Abastecimento</h4>
+            <table class="table table-bordered table-hover table-sm" id="tabela">
+                <thead>
+                    <tr>
+                        <th>Posto</th>
+                        <th>Combustível</th>
+                        <th>Litros</th>
+                        <th>Valor</th>                        
+                    </tr>
+                </thead>
+
+                
+                @foreach (ItemViewModel item in Model.Items)
+                {
+                    <tr>
+                        <td>@item.PostoId - @item.NomePosto</td>
+                        <td>@item.NomeCombustivel</td>
+                        <td>@item.Litros</td>
+                        <td>@item.Valor</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    // Carregar Combustíveis
+    $(document).ready(function () {
+        $('#PostoId').change(function () {            
+            $.ajax({
+                type: "post",
+                url: "/Abastecimento/GetCombustiveis",
+                data: { postoId: $('#PostoId').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var combustivel = '<option value="0">Selecione</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        combustivel = combustivel + '<option value=' + data[i][0] + '>' + data[i][1] + '</option>';
+                    }
+                    combustivel = combustivel + '</select>';
+                    $('#CombustivelId').html(combustivel);
+                }
+            });
+        });
+    });
+
+
+    $(window).on('load', function () {
+        let postoId = $('#PostoId').val();
+        if (postoId !== "0") {
+            $.ajax({
+                type: "post",
+                url: "/Abastecimento/GetCombustiveis",
+                data: { postoId: $('#PostoId').val() },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+                    var combustivel = '<option value="0">Selecione</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        combustivel = combustivel + '<option value=' + data[i][0] + '>' + data[i][1] + '</option>';
+                    }
+                    combustivel = combustivel + '</select>';
+                    $('#CombustivelId').html(combustivel);
+                }
+            });
+        }
+    });
+
+    $(document).ready(function () {
+        $('#adicionarCombustivel').click(function () {
+            $('#IsBotaoAdicionarCombustivel').val(true);            
+        });
+    });
+
+    $(document).ready(function () {
+        $('#abastecer').click(function () {
+            $('#IsBotaoAdicionarCombustivel').val(false);
+        });
+    });
+
+    $(document).ready(function () {
+        $('#CombustivelId').change(function () {
+            $('#NomeCombustivel').val($('#CombustivelId option:selected').text());
+        });
+    });
+
+    $(document).ready(function () {
+        $('#PostoId').change(function () {
+            $('#NomePosto').val($('#PostoId option:selected').text());
+        });
+    });
+
+    $(document).ready(function () {
+        $('#Litros').val('');
+        $('#Valor').val('');        
+    });
+
+   
+
+</script>

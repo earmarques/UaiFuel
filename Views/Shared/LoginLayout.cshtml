@@ -1,0 +1,27 @@
+﻿
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - UaiFuel</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+    <script src="https://kit.fontawesome.com/d2b190d7ef.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <div class="center">
+        <h1><img src="/image/UAI_dark.png" /></h1>
+            @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
