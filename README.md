@@ -146,21 +146,70 @@ _Listagem 5: Objetos DAO devem implementar os métodos CRUD da interface IDAO_
 Revendo a listagem 2, podemos entender agora a importância do uso do _Generics_. O DAO deve ter um acoplamento forte com o tipo de objeto de domínio que ele manipula. Isso impede o `VeiculoDAO` de manipular qualquer outro objeto que não seja `Veiculo`.
 
 
+### Service
+
+A camada de serviço é a interface entre `Model` e `Controller`. O controlador recebe as requisições do usuário e se comunica com o modelo através dos serviços oferecidos na subcamada _service_. Service detem a semântica da aplicação, todas as regras ou lógica de negócio estão nesta camada. A camada service sabe avaliar o nível de gravidade de uma exceção lançada, seja uma execeção do banco ou da aplicaçao, se é grave ou apenas uma advertência; criamos a classe `AlertType` para esta finalidade. Nós criamos algumas classes Exceptions para auxiliar na identificação e posterior tratamento, como `UniquePlacaException`. A camada _service_ é provedora de serviços ao controlador e é cliente da camada DAO.
+
+
+### ViewModel
+
+Os objetos do ViewModel são DTO's usados pelo controlador para carregar as informações necessárias a renderização das páginas. São objetos de transferência de dados entre a camada Model e a View. Estes objetos estão muito condicionados às demandas das páginas html, por vezes podem ter dados parciais de mais de um objeto de domínio. 
+
+Seus nomes costumam ser a combinação da página da view do objeto de domínio com a ação (`Action`) do controlador sobre o objeto de domínio: `MotoristaViewModel`, `CreateMotoristaViewModel`, `UpdateMotoristaViewModel`.   
+
+`PesquisaAbastecimentoViewModel` é um bom exemplo de DTO; só tem estado (_properties_), sem comportamento(métodos). Na listagem podemos ver que esse ViewModel possui informações parciais de varios objetos de domínio misturados, os campos necessários ao carregamento da página de pesquisa de abastecimento.
 
 ```C#
-```
+namespace UaiFuel.Models.ViewModel
+{
+    public class PesquisaAbastecimentoViewModel
+    {
+        public string CombustivelId { get; set; }
+        public string NomeCombustivel { get; set; }
+        public string VeiculoPlaca { get; set; }
+        public string PostoId { get; set; }
+        public string NomePosto { get; set; }
+        public string MotoristaId { get; set; }
+        public string NomeMotorista { get; set; }
+        public DateTime DataInicial { get; set; }
+        public DateTime DataFinal { get; set; }
+        public string StrDataInicial { get; set; }
+        public string StrDataFinal { get; set; }
 
-```C#
-```
 
-```C#
-```
+        public string CodigoStatus { get; set; }
+        public List<SelectListItem> Statuses { get; set; }
+        public IList<Abastecimento> Abastecimentos { get; set; }
+        public IList<PessoaViewModel> Postos { get; set; }
+        public IList<PessoaViewModel> Motoritas { get; set; }
+        public IList<Veiculo> Veiculos { get; set; }
 
-```C#
-```
+        public bool RealizouPesquisa { get; set; }
 
-```C#
-```
+        public PesquisaAbastecimentoViewModel()
+        {
+            RealizouPesquisa = false;
 
-```C#
+            Abastecimentos = new List<Abastecimento>();
+            Postos = new List<PessoaViewModel>();
+            Motoritas = new List<PessoaViewModel>();
+            Veiculos = new List<Veiculo>();
+
+            Statuses = new List<SelectListItem>();
+            foreach (var status in StatusAbastecimento.lista)
+            {
+                Statuses.Add(
+                    new SelectListItem
+                    {
+                        Value = status.Codigo.ToString(),
+                        Text = status.Descricao
+                    });
+            }
+        }
+    }
+}
+
 ```
+_Listagem 6: PesquisaAbastecimentoViewModel:DTO para transferir os filtros e resultados da pesquisa_
+
+As regras de negócio da visualização devem ficar no `Controller`, logo, é o controlador que verifica e preenche os ModelView. A camada de serviço do Model cuida apenas das regras dos objetos de domínio da apicação. O controlador usa a camada service para carregar os ModelView ou traduzir apropriadamente um modelView de uma requisição em uma chamada de serviço da camada Model. 
