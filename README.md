@@ -80,6 +80,6 @@ namespace UaiFuel.Models.Domain
 
 ### DAO
 
-sdf
+Não usamos nenhum _framework_ de mapeamento objeto-relacional, tinhamos menos de 3 meses para codificar e não daria tempo de estudar os detalhes do framework, então usamos o padrão DAO - _Data Acess Object_. 
 
 
