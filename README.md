@@ -77,12 +77,13 @@ namespace UaiFuel.Models.Domain
         }
     }    
 ```
+_Listagem 1: Singleton StatusVeiculo_
 
 ### DAO
 
 Não usamos nenhum _framework_ de mapeamento objeto-relacional, tinhamos menos de 3 meses para codificar e não daria tempo de estudar os detalhes do framework, então usamos o padrão DAO - _Data Access Object_. Seguindo o padrão, criamos uma classe abstrata (`DAOConnection`) para fazer a conexão com o banco e a qual todos os DAO's que manipulam os objetos de domínio devem estender. 
 
-Os objetos DAO tem a responsabilidade de acessar e manipular os objetos de domínio. O acrônimo CRUD (`Create`, `Read`, `Update` , `Delete`) enumera as ações essencias que deve executar sobre dos dados das entidades persistidas no banco de dados: criar, ler e listar, atualizar e apagar. Apesar de vermos alguns projetos com regras de negócio espalhadas em parte na camada _Service_ e parte na camada DAO, dentro do que estudamos nós entendemos como sendo um erro. A programação orientada a objetos orienta o isolamento de responsabilidade, e a camada DAO não deve ter nenhuma regra de negócio, ela é responsável exclusivamente por fazer a comunicação entre o banco de dados e a aplicação. Qualquer exceção lançada na execução dos métodos do DAO não devem ser tratadas por ele, quem deve ter a sapiência de avaliar a gravidade da exception e dar o devido tratamento é a camada de serviço.  
+Os objetos DAO tem a responsabilidade de acessar e manipular os objetos de domínio. O acrônimo CRUD (`Create`, `Read`, `Update` , `Delete`) enumera as ações essencias que deve executar sobre os dados das entidades persistidas no banco de dados: criar, ler e listar, atualizar e apagar. Apesar de vermos alguns projetos com regras de negócio espalhadas em parte na camada _Service_ e parte na camada DAO, dentro do que estudamos nós entendemos como sendo um erro. A programação orientada a objetos orienta o isolamento de responsabilidade, e a camada DAO não deve ter nenhuma regra de negócio, ela é responsável exclusivamente por fazer a comunicação entre o banco de dados e a aplicação. Qualquer exceção lançada na execução dos métodos do DAO não devem ser tratadas por ele, quem deve ter a sapiência de avaliar a gravidade da _exception_ e dar o devido tratamento é a camada de serviço.  
 
 O que queremos chamar a atenção do leitor é na interface `IDAO`. Esta interface faz uso de `Generics` para fazer acoplamento forte na tipagem entre o DAO e o objeto de domínio que manipula.
 
@@ -103,5 +104,58 @@ namespace UaiFuel.Models.DAO
     }
 }
 ```
+_Listagem 2: Interface IDAO com tipos genéricos_
 
-No namespace `Domain` 
+No namespace `Domain` criamos a interface `IDomainObject` para fazer a marcação de tipo.
+
+```C#
+namespace UaiFuel.Models.Domain
+{
+    public interface IDomainObject
+    {
+    }
+}
+```
+_Listagem 3: Interface de marcação de tipo IDomainObject_
+
+E fizemos todos os objetos de domínio serem subtipos de `IDomainObject`.
+
+```C#
+public class Veiculo : IDomainObject
+public class Combustivel : IDomainObject...
+public class Abastecimento : IDomainObject...
+...
+```
+_Listagem 4: Todos os objetos de domínio são do tipo comum IDomainObject_
+
+C# não permite herança multipla, então fizemos as classes concretas do DAO estender a classe abstrata `DAOConnection` e implementar a interface `IDAO`.
+
+```C#
+class VeiculoDAO : DAOConnection, IDAO<Veiculo>...
+class CombustivelDAO : DAOConnection, IDAO<Combustivel>
+class AbastecimentoDAO : DAOConnection, IDAO<Abastecimento>
+...
+```
+_Listagem 5: Objetos DAO devem implementar os métodos CRUD da interface IDAO_
+
+Revendo a listagem 2, podemos entender agora a importância do uso do _Generics_. O DAO deve ter um acoplamento forte com o tipo de objeto de domínio que ele manipula. Isso impede o `VeiculoDAO` de manipular qualquer outro objeto que não seja `Veiculo`.
+
+
+
+```C#
+```
+
+```C#
+```
+
+```C#
+```
+
+```C#
+```
+
+```C#
+```
+
+```C#
+```
