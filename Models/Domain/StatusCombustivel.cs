@@ -4,6 +4,9 @@ using System.Text;
 
 namespace UaiFuel.Models.Domain
 {
+    /** 
+     * Singleton Pattern 
+     */
     sealed public class StatusCombustivel
     {
         public int Codigo { get; }

@@ -9,7 +9,6 @@ namespace UaiFuel.Models.Domain
     /** 
      * POCO Design Pattern
      */
-
     public class Motorista : Pessoa
     {
         // Properties   -------------------------------------------------------------------------------------

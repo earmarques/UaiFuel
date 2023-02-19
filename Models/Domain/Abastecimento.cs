@@ -7,10 +7,7 @@ using UaiFuel.Models.DAO;
 
 namespace UaiFuel.Models.Domain
 {
-    /** 
-     * Builder Design Pattern
-     */
-
+ 
     public class Abastecimento : IDomainObject
     {
         // Properties   -------------------------------------------------------------------------------------

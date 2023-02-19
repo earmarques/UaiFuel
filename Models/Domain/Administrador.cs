@@ -9,7 +9,6 @@ namespace UaiFuel.Models.Domain
     /** 
      * POCO Design Pattern
      */
-
     public class Administrador : Pessoa
     {
         public override string ToString()

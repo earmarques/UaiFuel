@@ -52,7 +52,5 @@ namespace UaiFuel.Models.ViewModel
             }
         }
     }
-
-
 }
 

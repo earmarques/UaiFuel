@@ -10,7 +10,6 @@ namespace UaiFuel.Models.Domain
     /** 
      * POCO Design Pattern
      */
-
     public class Posto : Pessoa
     {
         public string CNPJ { get; set; }

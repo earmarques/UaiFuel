@@ -7,7 +7,6 @@ namespace UaiFuel.Models.Domain
     /** 
      * Singleton Pattern 
      */
-
     sealed public class Status
     {
         public int Codigo { get; }

@@ -7,7 +7,9 @@ using UaiFuel.Models.DAO;
 
 namespace UaiFuel.Models.Domain
 {
-
+    /** 
+     * POCO Design Pattern
+     */
     public class Veiculo : IDomainObject
     {
         
