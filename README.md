@@ -28,9 +28,11 @@ _Figura: namespace Domain_
 
 ### Domain
 
-Neste _namespace_ ficam as classes dos objetos que representam as entidades do domínio, a versão orientada a objetos das entidades do modelo relacional do banco de dados. A sua maioria são POCO, _Plain Old Class Object_, o mesmo conceito que POJO (Plain Old Java Object), porém a Microsoft teve por política limpar qualquer vestígio Java e cunhou um nome mais neutro. A diferença entre POCO e DTO (Data Transfer Object) é que DTO só tem estado, enquanto POCO tem estado e comportamento.
+Neste _namespace_ ficam as classes dos objetos que representam as entidades do domínio, a versão orientada a objetos das entidades do modelo relacional do banco de dados. A sua maioria são POCO, _Plain Old Class Object_, o mesmo conceito que POJO (_Plain Old Java Object_), porém a Microsoft teve por política limpar qualquer vestígio Java e cunhou um nome mais neutro. A diferença entre POCO e DTO (_Data Transfer Object_) é que DTO só tem estado, enquanto POCO tem estado e comportamento.
 
-As classes que não são POCO são os singletons criados para os status: `Status`, `StatusVeiculo`, `StatusCombustivel` e `StatusAbastecimento`. No  CLR (_Common Language Runtime_) do .NET _enumerations_ são apenas constantes nomeadas, cujo tipo subjacente deve ser inteiro. Optamos por criar instâncias de tipo nomeadas, assim podemos criar enumerations mais complexos, com vários tipos associados e ainda com comportamento. Nossa classe enum foi feita com o padrão de projeto Singleton - selamos a classe para impedir que seja estendida (_sealed_) e e fizemos o construtor privado para que ninguém, além da própria classe, possa instanciar objetos. A classe possui duas propriedades públicas de instância, `Codigo` e `Descricao`, mas apenas com acesso para leitura (`get`), o que impede eventual corrupção do seu valor. As instâncias nomeadas são atributos de classe (static) e são guardadas em uma lista _static_. Essa lista pode ser usada para carregar uma caixa de seleção suspensa(_ComboBox_), por exemplo. Podemos acessar os singletons diretamente pelo nome da classes (´StatusVeiculo.GARAGEM´, ´StatusVeiculo.MANUTENCAO´) ou pedindo ao singleton para buscar na lista fornecendo o código ao método `getInstance`.
+As classes que não são POCO são a interface `IDomainObject` usada para tipagem genérica no namespace DAO e os _singletons_ criados para os status: `Status`, `StatusVeiculo`, `StatusCombustivel` e `StatusAbastecimento`. No  CLR (_Common Language Runtime_) do .NET _enumerations_ são apenas constantes nomeadas, cujo tipo subjacente deve ser inteiro. Optamos por criar __instâncias de tipo__ nomeadas, assim podemos criar _enums_ mais complexos, com vários tipos associados e ainda com comportamento. Nossa classe _enum_ foi feita com o padrão de projeto _Singleton_ - selamos a classe para impedir que seja estendida (_sealed_) e fizemos o construtor privado para que ninguém, além da própria classe, possa instanciar objetos. 
+
+A classe possui duas propriedades públicas de instância, `Codigo` e `Descricao`, mas apenas com acesso para leitura (`get`), o que impede eventual corrupção do seu valor. As instâncias nomeadas são atributos de classe (_static_) e são guardadas em uma lista _static_. Essa lista pode ser usada para carregar uma caixa de seleção suspensa(_ComboBox_), por exemplo. Podemos acessar os singletons diretamente pelo nome da classes (´StatusVeiculo.GARAGEM´, ´StatusVeiculo.MANUTENCAO´) ou pedindo ao singleton para buscar na lista fornecendo o código ao método `StatusVeiculo.getInstance(codigo)`.
 
 ```c#
 namespace UaiFuel.Models.Domain
@@ -42,7 +44,7 @@ namespace UaiFuel.Models.Domain
     {
         public int Codigo { get; }
         public string Descricao { get; }
-
+        
         static public IList<StatusVeiculo> lista = new List<StatusVeiculo>();
 
         static public StatusVeiculo ATIVO       = new StatusVeiculo(1, "Ativo");
@@ -75,5 +77,9 @@ namespace UaiFuel.Models.Domain
         }
     }
     ```
+
+### DAO
+
+sdf
 
 
