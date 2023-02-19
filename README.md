@@ -148,16 +148,16 @@ Revendo a listagem 2, podemos entender agora a importância do uso do _Generics_
 
 ### Service
 
-A camada de serviço é a interface entre `Model` e `Controller`. O controlador recebe as requisições do usuário e se comunica com o modelo através dos serviços oferecidos na subcamada _service_. Service detem a semântica da aplicação, todas as regras ou lógica de negócio estão nesta camada. A camada service sabe avaliar o nível de gravidade de uma exceção lançada, seja uma execeção do banco ou da aplicaçao, se é grave ou apenas uma advertência; criamos a classe `AlertType` para esta finalidade. Nós criamos algumas classes Exceptions para auxiliar na identificação e posterior tratamento, como `UniquePlacaException`. A camada _service_ é provedora de serviços ao controlador e é cliente da camada DAO.
+A camada de serviço é a interface entre `Model` e `Controller`. O controlador recebe as requisições do usuário e se comunica com o modelo através dos serviços oferecidos na subcamada _service_. Service detém a semântica da aplicação, todas as regras ou lógica de negócio estão nesta camada. A camada _service_ sabe avaliar o nível de gravidade de uma exceção lançada, seja uma execeção do banco ou da aplicação, se é grave ou apenas uma advertência - criamos a classe `AlertType` para esta finalidade. Nós criamos algumas classes `Exceptions` para auxiliar na identificação e posterior tratamento, como `UniquePlacaException` que cuida da duplicação de placas de veículos. A camada Service é provedora de serviços ao controlador e é cliente da camada DAO.
 
 
 ### ViewModel
 
-Os objetos do ViewModel são DTO's usados pelo controlador para carregar as informações necessárias a renderização das páginas. São objetos de transferência de dados entre a camada Model e a View. Estes objetos estão muito condicionados às demandas das páginas html, por vezes podem ter dados parciais de mais de um objeto de domínio. 
+Os objetos do ViewModel são DTO's usados pelo controlador para carregar as informações necessárias a renderização das _views_ (páginas). São objetos de transferência de dados entre a camada Model e a View. Estes objetos estão muito condicionados às demandas das páginas html, por vezes podem ter dados parciais de mais de um objeto de domínio. 
 
-Seus nomes costumam ser a combinação da página da view do objeto de domínio com a ação (`Action`) do controlador sobre o objeto de domínio: `MotoristaViewModel`, `CreateMotoristaViewModel`, `UpdateMotoristaViewModel`.   
+Seus nomes costumam ser a combinação da página da _view_ do objeto de domínio com a ação (`Action`) do controlador sobre o objeto de domínio: `MotoristaViewModel`, `CreateMotoristaViewModel`, `UpdateMotoristaViewModel`.   
 
-`PesquisaAbastecimentoViewModel` é um bom exemplo de DTO; só tem estado (_properties_), sem comportamento(métodos). Na listagem podemos ver que esse ViewModel possui informações parciais de varios objetos de domínio misturados, os campos necessários ao carregamento da página de pesquisa de abastecimento.
+`PesquisaAbastecimentoViewModel` é um bom exemplo de DTO híbrido; só tem estado (_properties_), sem comportamento (métodos). Na listagem podemos ver que esse ViewModel possui informações parciais de varios objetos de domínio misturadas, todos os campos necessários ao carregamento da página de pesquisa de abastecimento.
 
 ```C#
 namespace UaiFuel.Models.ViewModel
@@ -210,6 +210,6 @@ namespace UaiFuel.Models.ViewModel
 }
 
 ```
-_Listagem 6: PesquisaAbastecimentoViewModel:DTO para transferir os filtros e resultados da pesquisa_
+_Listagem 6: PesquisaAbastecimentoViewModel: DTO para transferir os filtros e resultados da pesquisa_
 
-As regras de negócio da visualização devem ficar no `Controller`, logo, é o controlador que verifica e preenche os ModelView. A camada de serviço do Model cuida apenas das regras dos objetos de domínio da apicação. O controlador usa a camada service para carregar os ModelView ou traduzir apropriadamente um modelView de uma requisição em uma chamada de serviço da camada Model. 
+As regras de negócio da visualização devem ficar no `Controller`, logo, é o controlador que verifica e preenche os modelView's. A camada de serviço do Model cuida apenas das regras dos objetos de domínio da aplicação. O controlador usa a camada Service para carregar modelView's, ou traduzir apropriadamente um modelView de uma requisição do usuário em uma chamada de serviço da camada Model. 
