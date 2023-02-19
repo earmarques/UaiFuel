@@ -4,6 +4,16 @@ UaiFuel é um gerenciador de abastecimentos para postos de gasolina.
 
 Projeto Inter.
 
+- Eng. Soft 
+- Sistemas de Informação
+- Estr Dados
+- Linguagem de Programação
+- Comunicacao e Expressão
+
+- Banco de Dados
+- POO
+- MetodoPesquisaCientíficaTecnológica
+
 ---
 
 # Apresentação
