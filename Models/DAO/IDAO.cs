@@ -16,6 +16,5 @@ namespace UaiFuel.Models.DAO
         public IList<T> Read();
 
         public T Read(object pk);
-
     }
 }
