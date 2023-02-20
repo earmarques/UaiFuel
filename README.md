@@ -1,44 +1,63 @@
-UaiFuel é um gerenciador de abastecimentos para postos de gasolina.
+UaiFuel é um gerenciador de abastecimentos para postos de combustível franqueados.
 
 ### Contexto
 
-Eu como professor bem sei quanto o conhecimento humano é uno, inteiro e integral, e que separação em várias disciplinas é uma mera uma divisão didática. A soma das partes não é igual ao todo, na verdade ela o diminui. Reconheço três níveis de saber: informação, conhecimento e sabedoria. Há que se aprender  não só as partes isoladas, mas compreender como se correlacionam. 
+Eu como professor bem sei quanto o conhecimento humano é uno, inteiro e integral, a separação em várias disciplinas é uma mera divisão didática. A soma das partes não é igual ao todo, na verdade ela o diminui. Reconheço três níveis de saber: informação, conhecimento e sabedoria. Há que se aprender não só as partes isoladas, mas compreender como se correlacionam. 
 
-No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas Comunicacao e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Método em Pesquisa Científica e Tecnológica.
+No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas Comunicação e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Métodos em Pesquisa Científica e Tecnológica.
 
-
-
-O Projeto Interdisciplinar é trabalhado no segundo e quarto semestre do curso. Compreende várias atividades e relatórios.Os estudantes organizados em times de 3 a 4 membros, visitam empresas
-
-
+O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores banca em junho de 2021 no 4° semestre do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
 
 ---
 
 # Apresentação
 
+Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combustível. Haviam vários requisitos básicos a serem contemplados:
+
+- "_Um projeto Web será desenvolvido em Linguagem C# e plataforma de banco de dados SQL Server. Os conceitos sobre Engenharia de Software também deverão ser aplicados por meio de utilização de Análise Orientada a Objetos com o uso da UML, utilização de normas de Qualidade de Software e utilização de técnicas e ferramentas de Teste de Software._"
+- "_Os critérios de avaliação serão aplicados pela banca conforme disposto no quadro a seguir:_"
+- 
+ | Critérios                                                                | Percentual | 
+ | :--                                                                      |        --: | 
+ | Documentação de Engenharia de Software                                   |        20% | 
+ | Projeto de Banco de Dados                                                |        20% | 
+ | Projeto de Interface Gráfica                                             |        10% | 
+ | Produto Final                                                            |        40% | 
+ | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Produto Final – Login               |        10% | 
+ | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Produto Final – Menu principal      |        10% | 
+ | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Produto Final – Cadastros básicos   |        20% | 
+ | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Produto Final – Formulários N:N     |        50% | 
+ | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Produto Final – Pesquisas e Filtros |        10% | 
+ | Apresentação Oral                                                        |        10% | 
+
+Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal entregue com todos os diagramas etc. pode ser encontrada na pasta `docs` ou acessar diretamente o pdf aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
+
+
+[!]()
+
 ---
 
-# Arquitetura
+## Arquitetura
 
 O Microsoft Visual Studio tem um _template_ de projeto MVC (_Model-View-Controller_) para C# que utilizamos como base para o nosso projeto. 
 
-## View
+### View
 Os arquivos de estilização e javascript ficam na pasta `wwwroot`. Na pasta `Views` ficam os arquivos _Razor_ (cshtml) com seus _scriptlets_ de servidor embutido, usado pelo VB.NET para gerar as páginas html e fazer a interação com o usuário; basicamente teremos um arquivo cshtml para cada ação do controlador. 
 
-## Controller
+### Controller
 Na pasta `Controller` temos os controladores da aplicação, onde são definidas as ações (`ActionResult`) que consomem os serviços da camada `Model` e direcionam o fluxo da aplicação. 
 
-![Figura: Estrutura do Projeto](images/arquitetura.png)<br>
+![Figura: Estrutura do Projeto](images/arquitetura.png "Estrutura do Projeto")<br>
 _Figura: Estrutura do Projeto_
 
-## Model
+### Model
 
 Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas para agrupar funcionalidades em comum. 
 
 ![Figura: namespace Domain](images/domain.png)<br>
 _Figura: namespace Domain_
 
-### Domain
+#### Domain
 
 Neste _namespace_ ficam as classes dos objetos que representam as entidades do domínio, a versão orientada a objetos das entidades do modelo relacional do banco de dados. A sua maioria são POCO, _Plain Old Class Object_, o mesmo conceito que POJO (_Plain Old Java Object_), porém a Microsoft teve por política limpar qualquer vestígio Java e cunhou um nome mais neutro. A diferença entre POCO e DTO (_Data Transfer Object_) é que DTO só tem estado, enquanto POCO tem estado e comportamento.
 
@@ -96,7 +115,7 @@ Um dos requisitos do projeto Interdisciplinar era ter ao menos um relacionamento
 A chave primária `pk` é uma chave composta e está modelada em `AbastecimentoCombustivelId`. Buscamos seguir no rigor dos princípios norteadores da Programação Orientada a Objetos, não inserimos simplesmente os id's inteiros das entidades dentro da relação, algo como `AbastecimentoId` e `CombustivelId`. Encapsulamos em uma classe a parte, fizemos a `pk` ser um objeto e não dois inteiro primitivo.    
 
 
-### DAO
+#### DAO
  
 Não usamos nenhum _framework_ de mapeamento objeto-relacional, tinhamos menos de 3 meses para codificar e não daria tempo de estudar os detalhes do framework, então usamos o padrão DAO - _Data Access Object_. Seguindo o padrão, criamos uma classe abstrata (`DAOConnection`) para fazer a conexão com o banco e a qual todos os DAO's que manipulam os objetos de domínio devem estender. 
 
@@ -158,12 +177,12 @@ _Listagem 5: Objetos DAO devem implementar os métodos CRUD da interface IDAO_
 Revendo a listagem 2, podemos entender agora a importância do uso do _Generics_. O DAO deve ter um acoplamento forte com o tipo de objeto de domínio que ele manipula. Isso impede o `VeiculoDAO` de manipular qualquer outro objeto que não seja `Veiculo`.
 
 
-### Service
+#### Service
 
 A camada de serviço é a interface entre `Model` e `Controller`. O controlador recebe as requisições do usuário e se comunica com o modelo através dos serviços oferecidos na subcamada _service_. Service detém a semântica da aplicação, todas as regras ou lógica de negócio estão nesta camada. A camada _service_ sabe avaliar o nível de gravidade de uma exceção lançada, seja uma execeção do banco ou da aplicação, se é grave ou apenas uma advertência - criamos a classe `AlertType` para esta finalidade. Nós criamos algumas classes `Exceptions` para auxiliar na identificação e posterior tratamento, como `UniquePlacaException` que cuida da duplicação de placas de veículos. A camada Service é provedora de serviços ao controlador e é cliente da camada DAO.
 
 
-### ViewModel
+#### ViewModel
 
 Os objetos do ViewModel são DTO's usados pelo controlador para carregar as informações necessárias a renderização das _views_ (páginas). São objetos de transferência de dados entre a camada Model e a View. Estes objetos estão muito condicionados às demandas das páginas html, por vezes podem ter dados parciais de mais de um objeto de domínio. 
 
@@ -225,7 +244,4 @@ namespace UaiFuel.Models.ViewModel
 _Listagem 6: PesquisaAbastecimentoViewModel: DTO para transferir os filtros e resultados da pesquisa_
 
 As regras de negócio da visualização devem ficar no `Controller`, logo, é o controlador que verifica e preenche os modelView's. A camada de serviço do Model cuida apenas das regras dos objetos de domínio da aplicação. O controlador usa a camada Service para carregar modelView's, ou traduzir apropriadamente um modelView de uma requisição do usuário em uma chamada de serviço da camada Model. 
-
-
-eder
 
