@@ -1,3 +1,5 @@
+# UaiFuel
+
 UaiFuel é um gerenciador de abastecimentos para postos de combustível franqueados.
 
 ### Contexto
@@ -6,17 +8,17 @@ Eu como professor bem sei quanto o conhecimento humano é uno, inteiro e integra
 
 No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas Comunicação e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Métodos em Pesquisa Científica e Tecnológica.
 
-O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores banca em junho de 2021 no 4° semestre do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
+O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores em junho de 2021 no 4° semestre do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
 
 ---
 
-# Apresentação
+## Apresentação
 
 Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combustível. Haviam vários requisitos básicos a serem contemplados:
 
 - "_Um projeto Web será desenvolvido em Linguagem C# e plataforma de banco de dados SQL Server. Os conceitos sobre Engenharia de Software também deverão ser aplicados por meio de utilização de Análise Orientada a Objetos com o uso da UML, utilização de normas de Qualidade de Software e utilização de técnicas e ferramentas de Teste de Software._"
 - "_Os critérios de avaliação serão aplicados pela banca conforme disposto no quadro a seguir:_"
-- 
+
  | Critérios                                                                | Percentual | 
  | :--                                                                      |        --: | 
  | Documentação de Engenharia de Software                                   |        20% | 
@@ -30,7 +32,11 @@ Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combus
  | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Produto Final – Pesquisas e Filtros |        10% | 
  | Apresentação Oral                                                        |        10% | 
 
-Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal entregue com todos os diagramas etc. pode ser encontrada na pasta `docs` ou acessar diretamente o pdf aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
+Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal com todos os diagramas e etc. pode ser encontrada na pasta `docs` ou acessada diretamente aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
+
+### Responsivo
+
+
 
 
 [!]()
