@@ -2,17 +2,15 @@ UaiFuel é um gerenciador de abastecimentos para postos de gasolina.
 
 ### Contexto
 
-Projeto Inter.
+Eu como professor bem sei quanto o conhecimento humano é uno, inteiro e integral, e que separação em várias disciplinas é uma mera uma divisão didática. A soma das partes não é igual ao todo, na verdade ela o diminui. Reconheço três níveis de saber: informação, conhecimento e sabedoria. Há que se aprender  não só as partes isoladas, mas compreender como se correlacionam. 
 
-- Eng. Soft 
-- Sistemas de Informação
-- Estr Dados
-- Linguagem de Programação
-- Comunicacao e Expressão
+No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas Comunicacao e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Método em Pesquisa Científica e Tecnológica.
 
-- Banco de Dados
-- POO
-- MetodoPesquisaCientíficaTecnológica
+
+
+O Projeto Interdisciplinar é trabalhado no segundo e quarto semestre do curso. Compreende várias atividades e relatórios.Os estudantes organizados em times de 3 a 4 membros, visitam empresas
+
+
 
 ---
 
