@@ -34,9 +34,15 @@ Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combus
 
 Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal com todos os diagramas e etc. pode ser encontrada na pasta `docs` ou acessada diretamente aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
 
+
+<hr>
+
 ### Responsivo
 
 A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
+
+
+<hr>
 
 ### Menu Principal
 
@@ -45,14 +51,28 @@ A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, se
 |![Menu expandido](images/menu.png "a) Menu expandido") | ![Menu compactado](images/menu_compactado.png "b) Menu compactado") | <br />
 _Figura 1: Menu principal responsivo_
 
+
+<hr>
+
 ### Pesquisas e Filtros
 
-Em todas as listagens de dados existe um filtro de caracteres dos campos visualizados, um seletor de quantidade de linhas do resultado exibidas e ainda, em cada cabeçalho de coluna, um ordenador crescente ou decrescente que alterna a forma de ordenação a cada clique. Veremos estes comportamentos nas demonstrações a seguir.
+Em todas as listagens de dados existe um filtro de caracteres dos campos visualizados, um seletor da quantidade de linhas exibidas do resultado e ainda, em cada cabeçalho de coluna, um ordenador crescente ou decrescente que alterna a forma de ordenação a cada clique. Veremos estes comportamentos nas demonstrações a seguir.
 
-Além do filtro do resultado retornado, fizemos uma tela de pesquisa de abastecimentos, em que combinamos as opões fornecidas pelo usuário com um "AND" lógico nos conjuntos. Podemos pesquisar os abastecimentos pelo posto de combusível, o motorista que efetuou o abastecimento, pela placa do veículo, pelo status do abastecimento e por um período fornecendo data inicial e final. 
+Além do filtro do resultado retornado, fizemos uma tela específica para pesquisar o principal objeto de domínio da nossa aplicação, os abastecimentos. Nela combinamos as opões fornecidas pelo usuário com um "AND" lógico nos conjuntos. Podemos pesquisar os abastecimentos pelo posto de combusível, pelo motorista que efetuou o abastecimento, pela placa do veículo, pelo status do abastecimento e por um período, fornecendo data inicial e final. 
 
 ![Pesquisa de Abastecimentos](images/pesquisa.gif "Pesquisa de Abastecimentos") <br />
 _Figura 2: Pesquisa de Abastecimentos_
+
+
+<hr>
+
+### Login
+
+Após a autenticação do usuário surge uma barra superior, oferencedo o menu no lado esquerdo e uma saudação ao usuário logado no lado direito. Apresenta mensagem em caso de falha de autenticação e de campo obrigatório.
+
+![Tela de login](images/login.gif "Tela de login") <br />
+_Figura 3: Tela de login_
+
 
 
 ---
