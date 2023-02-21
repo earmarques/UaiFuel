@@ -11,6 +11,7 @@ No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de 
 O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores em junho de 2021 no 4° semestre do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
 
 ---
+---
 
 ## Apresentação
 
@@ -34,15 +35,13 @@ Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combus
 
 Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal com todos os diagramas e etc. pode ser encontrada na pasta `docs` ou acessada diretamente aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
 
-
-<hr>
+---
 
 ### Responsivo
 
 A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
 
-
-<hr>
+---
 
 ### Menu Principal
 
@@ -52,7 +51,7 @@ A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, se
 _Figura 1: Menu principal responsivo_
 
 
-<hr>
+---
 
 ### Pesquisas e Filtros
 
@@ -64,7 +63,7 @@ Além do filtro do resultado retornado, fizemos uma tela específica para pesqui
 _Figura 2: Pesquisa de Abastecimentos_
 
 
-<hr>
+---
 
 ### Login
 
@@ -73,8 +72,43 @@ Após a autenticação do usuário surge uma barra superior, oferencedo o menu n
 ![Tela de login](images/login.gif "Tela de login") <br />
 _Figura 3: Tela de login_
 
+---
+
+### Cadastros Básicos
+
+#### Motorista
+
+![Cadastro de Motorista](images/motorista.gif "Cadastro de Motorista") <br />
+_Figura 4: Cadastro de Motorista_
 
 
+#### Veículo
+
+![Cadastro de Veículo](images/veiculo.gif "Cadastro de Veículo") <br />
+_Figura 5: Cadastro de Veículo_
+
+
+#### Posto de Combustível
+
+![Cadastro de Posto de Combustível](images/posto.gif "Cadastro de Posto de Combustível") <br />
+_Figura 6: Cadastro de Posto de Combustível_
+
+#### Combustível
+
+![Cadastro de Combustível](images/combustivel.gif "Cadastro de Combustível") <br />
+_Figura 7: Cadastro de Combustível_
+
+
+### Formulário N:N
+
+#### Abastecimento
+
+![Cadastro de Abastecimento](images/abastecimento.gif "Cadastro de Abastecimento") <br />
+_Figura 8: Cadastro de Abastecimento_
+
+
+
+---
 ---
 
 ## Arquitetura
