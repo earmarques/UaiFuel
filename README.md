@@ -35,6 +35,8 @@ Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combus
 
 Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal com todos os diagramas e etc. pode ser encontrada na pasta `docs` ou acessada diretamente aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
 
+**_Observação:_** Os scripts de geração do banco, criação de _views_, de _store procedure_ e inserções iniciais de dados estão na pasta `scripts_db`. Basta seguir a ordem de execução indicada no nome do arquivo.
+
 ---
 
 ### Responsivo
@@ -99,11 +101,17 @@ _Figura 6: Cadastro de Posto de Combustível_
 
 #### Combustível
 
+Os combustíveis oferecidos pelo estabelecimento depende do posto, alguns poderão ter apenas diesel S-500, outros apenas S-10, alguns terão os dois. Tem posto que só vende gasolina comum e não tem aditivada, enfim depende do posto. 
+
+Na demostração de cadastro de combustível podemos também observar o seletor de quantidade de registros exibidos atuando.
+
 ![Cadastro de Combustível](images/combustivel.gif "Cadastro de Combustível") <br />
 _Figura 7: Cadastro de Combustível_
 
 
 ### Formulário N:N
+
+O nosso relacionamento N-N se dá entre as entidades combustível e abastecimento. No mesmo abastecimento podemos colocar no tanque gasolina e aditivo, diesel e arla. E os mesmos combsutíveis podem servir a mais de um abastecimento. Discutimos com mais detalhes a modelagem que fizemos no _namespace_ "Domain" da camada "Model" da arquitetura MVC. 
 
 #### Abastecimento
 
@@ -188,14 +196,15 @@ namespace UaiFuel.Models.Domain
 ```
 _Listagem 1: Singleton StatusVeiculo_
 
-Um dos requisitos do projeto Interdisciplinar era ter ao menos um relacionamento N - N. Nós atendemos a exigência fazendo no mesmo abastecimento ter mais de um combustível: álcool e aditivo, diesel S10 e arla. A relação entre as entidades `Abastecimento` e `Combustivel` possui os campos `Valor` e `Litros` e fora mapeada para classe `AbastecimentoCombustivel`. 
+Um dos requisitos do Projeto Interdisciplinar era ter ao menos um relacionamento N-N. Nós atendemos a exigência fazendo no mesmo abastecimento ter mais de um combustível: álcool e aditivo, diesel S10 e arla. A relação entre as entidades `Abastecimento` e `Combustivel` possui os campos `Valor` e `Litros` e fora mapeada para classe `AbastecimentoCombustivel`. 
 
 A chave primária `pk` é uma chave composta e está modelada em `AbastecimentoCombustivelId`. Buscamos seguir no rigor dos princípios norteadores da Programação Orientada a Objetos, não inserimos simplesmente os id's inteiros das entidades dentro da relação, algo como `AbastecimentoId` e `CombustivelId`. Encapsulamos em uma classe a parte, fizemos a `pk` ser um objeto e não dois inteiro primitivo.    
 
+Aqui cometemos um erro no mapeamento. O combustível é dependente do posto, logo, deveríamos ter incluido também o id do posto, como fizemos no banco. Só percebemos essa inconsistência depois. Demoramos para notar porque como combustível depende do posto, mesmo que cadastremos o mesmo combustível, cada combustível terá um id diferente, assim sendo mais pragmáticos, basta a chave ter apenas os ids do abastecimento e do combustível, uma vez que o id do posto está embutido na própria chave primária do combustível, que é composta. Recomendamos o leitor checar o script de criação do banco na pasta `scripts_db`. Estávamos muito apertados com o prazo e não fizemos uma modelagem mais fidegna como gostaríamos.
 
 #### DAO
  
-Não usamos nenhum _framework_ de mapeamento objeto-relacional, tinhamos menos de 3 meses para codificar e não daria tempo de estudar os detalhes do framework, então usamos o padrão DAO - _Data Access Object_. Seguindo o padrão, criamos uma classe abstrata (`DAOConnection`) para fazer a conexão com o banco e a qual todos os DAO's que manipulam os objetos de domínio devem estender. 
+Não usamos nenhum _framework_ de mapeamento objeto-relacional, tinhamos menos de 3 meses para codificar e não daria tempo de estudar os detalhes do _framework_, então usamos o padrão DAO - _Data Access Object_. Seguindo o padrão, criamos uma classe abstrata (`DAOConnection`) para fazer a conexão com o banco e a qual todos os DAO's que manipulam os objetos de domínio devem estender. 
 
 Os objetos DAO tem a responsabilidade de acessar e manipular os objetos de domínio. O acrônimo CRUD (`Create`, `Read`, `Update` , `Delete`) enumera as ações essencias que deve executar sobre os dados das entidades persistidas no banco de dados: criar, ler e listar, atualizar e apagar. Apesar de vermos alguns projetos com regras de negócio espalhadas em parte na camada _Service_ e parte na camada DAO, dentro do que estudamos nós entendemos como sendo um erro. A programação orientada a objetos orienta o isolamento de responsabilidade, e a camada DAO não deve ter nenhuma regra de negócio, ela é responsável exclusivamente por fazer a comunicação entre o banco de dados e a aplicação. Qualquer exceção lançada na execução dos métodos do DAO não devem ser tratadas por ele, quem deve ter a sapiência de avaliar a gravidade da _exception_ e dar o devido tratamento é a camada de serviço.  
 
