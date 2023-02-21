@@ -99,7 +99,7 @@ _Figura 6: Cadastro de Posto de Combustível_
 
 Os combustíveis oferecidos pelo estabelecimento dependem do posto; alguns poderão ter apenas diesel S-500, outros apenas S-10 e alguns terão os dois. Tem posto que só vende gasolina comum e não tem aditivada, enfim, depende do posto. 
 
-Na demostração de cadastro de combustível podemos também observar o seletor de quantidade de registros exibidos atuando.
+Na demostração de cadastro de combustível podemos também observar o seletor de quantidade de registros exibidos operando.
 
 ![Cadastro de Combustível](images/combustivel.gif "Cadastro de Combustível") <br />
 _Figura 7: Cadastro de Combustível_
