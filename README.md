@@ -263,7 +263,7 @@ Os objetos do ViewModel são DTO's usados pelo controlador para carregar as info
 
 Seus nomes costumam ser a combinação da página da _view_ do objeto de domínio com a ação (`Action`) do controlador sobre o objeto de domínio: `MotoristaViewModel`, `CreateMotoristaViewModel`, `UpdateMotoristaViewModel`.   
 
-`PesquisaAbastecimentoViewModel` é um bom exemplo de DTO híbrido; só tem estado (_properties_), sem comportamento (métodos). Na listagem podemos ver que esse ViewModel possui informações parciais de varios objetos de domínio misturadas, todos os campos necessários ao carregamento da página de pesquisa de abastecimento.
+`PesquisaAbastecimentoViewModel` é um bom exemplo de DTO híbrido; só tem estado (_properties_), sem comportamento (métodos). Na listagem podemos ver que esse ViewModel possui informações parciais de vários objetos de domínio misturadas, todos os campos necessários ao carregamento da página de pesquisa de abastecimento.
 
 ```C#
 namespace UaiFuel.Models.ViewModel
