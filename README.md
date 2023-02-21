@@ -49,7 +49,8 @@ A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, se
 
 | a) Menu expandido |  b) Menu compactado |
 |:-:|:-:|
-|![Menu expandido](images/menu.png "a) Menu expandido") | ![Menu compactado](images/menu_compactado.png "b) Menu compactado") | <br />
+|![Menu expandido](images/menu.png "a) Menu expandido") | ![Menu compactado](images/menu_compactado.png "b) Menu compactado") | 
+
 _Figura 1: Menu principal responsivo_
 
 
