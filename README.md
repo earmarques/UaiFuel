@@ -108,7 +108,7 @@ _Figura 7: Cadastro de Combustível_
 
 ### Formulário N:N
 
-O nosso relacionamento N-N se dá entre as entidades combustível e abastecimento. No mesmo abastecimento podemos colocar no tanque gasolina e aditivo, diesel e arla. E os mesmos combsutíveis podem servir a mais de um abastecimento. Discutimos com mais detalhes a modelagem que fizemos no _namespace_ "Domain" da camada "Model" da arquitetura MVC. 
+O nosso relacionamento N-N se dá entre as entidades combustível e abastecimento. No mesmo abastecimento podemos colocar no tanque gasolina e aditivo, diesel e arla. E os mesmos combustíveis podem servir a mais de um abastecimento. Discutimos com mais detalhes a modelagem que fizemos no _namespace_ "Domain" da camada "Model" da arquitetura MVC. 
 
 #### Abastecimento
 
