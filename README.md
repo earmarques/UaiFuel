@@ -11,7 +11,6 @@ No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de 
 O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores em junho de 2021 no 4° semestre do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
 
 ---
----
 
 ## Apresentação
 
@@ -37,25 +36,21 @@ Felizmente o nosso projeto recebeu a maior nota da turma. A documentação forma
 
 **_Observação:_** Os scripts de geração do banco, criação de _views_, de _store procedure_ e inserções iniciais de dados estão na pasta `scripts_db`. Basta seguir a ordem de execução indicada no nome do arquivo.
 
----
-
+<br />
 ### Responsivo
 
 A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
 
----
-
+<br />
 ### Menu Principal
 
-| a) Menu expandido |  b) Menu compactado |
+| Menu expandido |  Menu compactado |
 |:-:|:-:|
 |![Menu expandido](images/menu.png "a) Menu expandido") | ![Menu compactado](images/menu_compactado.png "b) Menu compactado") | 
 
 _Figura 1: Menu principal responsivo_
 
-
----
-
+<br />
 ### Pesquisas e Filtros
 
 Em todas as listagens de dados existe um filtro de caracteres dos campos visualizados, um seletor da quantidade de linhas exibidas do resultado e ainda, em cada cabeçalho de coluna, um ordenador crescente ou decrescente que alterna a forma de ordenação a cada clique. Veremos estes comportamentos nas demonstrações a seguir.
@@ -65,9 +60,7 @@ Além do filtro do resultado retornado, fizemos uma tela específica para pesqui
 ![Pesquisa de Abastecimentos](images/pesquisa.gif "Pesquisa de Abastecimentos") <br />
 _Figura 2: Pesquisa de Abastecimentos_
 
-
----
-
+<br />
 ### Login
 
 Após a autenticação do usuário surge uma barra superior, oferencedo o menu no lado esquerdo e uma saudação ao usuário logado no lado direito. Apresenta mensagem em caso de falha de autenticação e de campo obrigatório.
@@ -75,8 +68,7 @@ Após a autenticação do usuário surge uma barra superior, oferencedo o menu n
 ![Tela de login](images/login.gif "Tela de login") <br />
 _Figura 3: Tela de login_
 
----
-
+<br />
 ### Cadastros Básicos
 
 #### Motorista
@@ -84,14 +76,12 @@ _Figura 3: Tela de login_
 ![Cadastro de Motorista](images/motorista.gif "Cadastro de Motorista") <br />
 _Figura 4: Cadastro de Motorista_
 
-
 #### Veículo
 
 Nesta demosntração podemos ver o comportamento de ordenação por colunas em "_Cor_", "_Placa_" e "_Ano Modelo_" do veículo.
 
 ![Cadastro de Veículo](images/veiculo.gif "Cadastro de Veículo") <br />
 _Figura 5: Cadastro de Veículo_
-
 
 #### Posto de Combustível
 
@@ -109,7 +99,7 @@ Na demostração de cadastro de combustível podemos também observar o seletor 
 ![Cadastro de Combustível](images/combustivel.gif "Cadastro de Combustível") <br />
 _Figura 7: Cadastro de Combustível_
 
-
+<br />
 ### Formulário N:N
 
 O nosso relacionamento N-N se dá entre as entidades combustível e abastecimento. No mesmo abastecimento podemos colocar no tanque gasolina e aditivo, diesel e arla. E os mesmos combsutíveis podem servir a mais de um abastecimento. Discutimos com mais detalhes a modelagem que fizemos no _namespace_ "Domain" da camada "Model" da arquitetura MVC. 
@@ -120,23 +110,22 @@ O nosso relacionamento N-N se dá entre as entidades combustível e abasteciment
 _Figura 8: Cadastro de Abastecimento_
 
 
-
----
----
-
 ## Arquitetura
 
 O Microsoft Visual Studio tem um _template_ de projeto MVC (_Model-View-Controller_) para C# que utilizamos como base para o nosso projeto. 
 
+<br />
 ### View
 Os arquivos de estilização e javascript ficam na pasta `wwwroot`. Na pasta `Views` ficam os arquivos _Razor_ (cshtml) com seus _scriptlets_ de servidor embutido, usado pelo VB.NET para gerar as páginas html e fazer a interação com o usuário; basicamente teremos um arquivo cshtml para cada ação do controlador. 
 
+<br />
 ### Controller
 Na pasta `Controller` temos os controladores da aplicação, onde são definidas as ações (`ActionResult`) que consomem os serviços da camada `Model` e direcionam o fluxo da aplicação. 
 
 ![Figura: Estrutura do Projeto](images/arquitetura.png "Estrutura do Projeto")<br>
 _Figura: Estrutura do Projeto_
 
+<br />
 ### Model
 
 Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas para agrupar funcionalidades em comum. 
