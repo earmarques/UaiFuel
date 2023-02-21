@@ -67,7 +67,7 @@ _Figura 2: Pesquisa de Abastecimentos_
 
 ### Login
 
-Após a autenticação do usuário surge uma barra superior, oferencedo o menu no lado esquerdo e uma saudação ao usuário logado no lado direito. Apresenta mensagem em caso de falha de autenticação e de campo obrigatório.
+Após a autenticação do usuário surge uma barra superior, oferecendo o menu no lado esquerdo e uma saudação ao usuário logado no lado direito. Apresenta mensagem em caso de falha de autenticação e de campo obrigatório.
 
 ![Tela de login](images/login.gif "Tela de login") <br />
 _Figura 3: Tela de login_
@@ -83,14 +83,14 @@ _Figura 4: Cadastro de Motorista_
 
 #### Veículo
 
-Nesta demosntração podemos ver o comportamento de ordenação por colunas em "_Cor_", "_Placa_" e "_Ano Modelo_" do veículo.
+Nesta demosntração podemos ver o comportamento de ordenação por colunas, em "_Cor_", "_Placa_" e "_Ano Modelo_" do veículo.
 
 ![Cadastro de Veículo](images/veiculo.gif "Cadastro de Veículo") <br />
 _Figura 5: Cadastro de Veículo_
 
 #### Posto de Combustível
 
-Na animação da figura 6 vemos o filtro de caracteres atuando e no endereço, temos um caso de lista suspensa dependente, onde uma vez definida a unidade federativa, apenas as cidades daquele estado selecionado serão oferecidas ao usuário.
+Na animação da figura 6 vemos o filtro de caracteres atuando, e quando estamos preenchendo o endereço, temos um caso de lista suspensa dependente, onde uma vez definida a unidade federativa, apenas as cidades daquele estado selecionado serão oferecidas ao usuário.
 
 ![Cadastro de Posto de Combustível](images/posto.gif "Cadastro de Posto de Combustível") <br />
 _Figura 6: Cadastro de Posto de Combustível_
