@@ -37,11 +37,13 @@ Felizmente o nosso projeto recebeu a maior nota da turma. A documentação forma
 **_Observação:_** Os scripts de geração do banco, criação de _views_, de _store procedure_ e inserções iniciais de dados estão na pasta `scripts_db`. Basta seguir a ordem de execução indicada no nome do arquivo.
 
 <br />
+
 ### Responsivo
 
 A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
 
 <br />
+
 ### Menu Principal
 
 | Menu expandido |  Menu compactado |
@@ -51,6 +53,7 @@ A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, se
 _Figura 1: Menu principal responsivo_
 
 <br />
+
 ### Pesquisas e Filtros
 
 Em todas as listagens de dados existe um filtro de caracteres dos campos visualizados, um seletor da quantidade de linhas exibidas do resultado e ainda, em cada cabeçalho de coluna, um ordenador crescente ou decrescente que alterna a forma de ordenação a cada clique. Veremos estes comportamentos nas demonstrações a seguir.
@@ -61,6 +64,7 @@ Além do filtro do resultado retornado, fizemos uma tela específica para pesqui
 _Figura 2: Pesquisa de Abastecimentos_
 
 <br />
+
 ### Login
 
 Após a autenticação do usuário surge uma barra superior, oferencedo o menu no lado esquerdo e uma saudação ao usuário logado no lado direito. Apresenta mensagem em caso de falha de autenticação e de campo obrigatório.
@@ -69,6 +73,7 @@ Após a autenticação do usuário surge uma barra superior, oferencedo o menu n
 _Figura 3: Tela de login_
 
 <br />
+
 ### Cadastros Básicos
 
 #### Motorista
@@ -100,6 +105,7 @@ Na demostração de cadastro de combustível podemos também observar o seletor 
 _Figura 7: Cadastro de Combustível_
 
 <br />
+
 ### Formulário N:N
 
 O nosso relacionamento N-N se dá entre as entidades combustível e abastecimento. No mesmo abastecimento podemos colocar no tanque gasolina e aditivo, diesel e arla. E os mesmos combsutíveis podem servir a mais de um abastecimento. Discutimos com mais detalhes a modelagem que fizemos no _namespace_ "Domain" da camada "Model" da arquitetura MVC. 
@@ -115,6 +121,7 @@ _Figura 8: Cadastro de Abastecimento_
 O Microsoft Visual Studio tem um _template_ de projeto MVC (_Model-View-Controller_) para C# que utilizamos como base para o nosso projeto. 
 
 <br />
+
 ### View
 Os arquivos de estilização e javascript ficam na pasta `wwwroot`. Na pasta `Views` ficam os arquivos _Razor_ (cshtml) com seus _scriptlets_ de servidor embutido, usado pelo VB.NET para gerar as páginas html e fazer a interação com o usuário; basicamente teremos um arquivo cshtml para cada ação do controlador. 
 
@@ -126,6 +133,7 @@ Na pasta `Controller` temos os controladores da aplicação, onde são definidas
 _Figura: Estrutura do Projeto_
 
 <br />
+
 ### Model
 
 Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas para agrupar funcionalidades em comum. 
