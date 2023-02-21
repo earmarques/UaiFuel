@@ -36,10 +36,12 @@ Felizmente o nosso projeto recebeu a maior nota da turma. A documentação forma
 
 ### Responsivo
 
+A aplicação web UaiFuel se adapta a qualque dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
 
+| a) Menu expandido |  b) Menu compactado |
+|:-:|:-:|
+|![Menu expandido](images/menu.png "Menu expandido") | ![Menu compactado](images/menu_compactado.png "Menu compactado") |
 
-
-[!]()
 
 ---
 
