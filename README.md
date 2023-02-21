@@ -120,15 +120,15 @@ Os arquivos de estilização e javascript ficam na pasta `wwwroot`. Na pasta `Vi
 ### Controller
 Na pasta `Controller` temos os controladores da aplicação, onde são definidas as ações (`ActionResult`) que consomem os serviços da camada `Model` e direcionam o fluxo da aplicação. 
 
-![Figura 9: Estrutura do Projeto](images/arquitetura.png "Estrutura do Projeto")<br>
-_Figura: Estrutura do Projeto_
+![Estrutura do Projeto](images/arquitetura.png "Estrutura do Projeto")<br>
+_Figura 9: Estrutura do Projeto_
 
 
 ### Model
 
 Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas para agrupar funcionalidades em comum. 
 
-![Figura: namespace Domain](images/domain.png)<br>
+![Namespace Domain](images/domain.png)<br>
 _Figura 10: namespace Domain_
 
 #### Domain
