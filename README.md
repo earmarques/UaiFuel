@@ -83,21 +83,21 @@ _Figura 4: Cadastro de Motorista_
 
 #### Veículo
 
-Nesta demosntração podemos ver o comportamento de ordenação por colunas, em "_Cor_", "_Placa_" e "_Ano Modelo_" do veículo.
+Nesta demonstração podemos ver o comportamento de ordenação por colunas, em "_Cor_", "_Placa_" e "_Ano Modelo_" do veículo.
 
 ![Cadastro de Veículo](images/veiculo.gif "Cadastro de Veículo") <br />
 _Figura 5: Cadastro de Veículo_
 
 #### Posto de Combustível
 
-Na animação da figura 6 vemos o filtro de caracteres atuando, e quando estamos preenchendo o endereço, temos um caso de lista suspensa dependente, onde uma vez definida a unidade federativa, apenas as cidades daquele estado selecionado serão oferecidas ao usuário.
+Na animação da figura 6, vemos o filtro de caracteres atuando, e quando estamos preenchendo o endereço, temos um caso de "lista suspensa dependente", onde uma vez definida a unidade federativa, apenas as cidades daquele estado selecionado serão oferecidas ao usuário.
 
 ![Cadastro de Posto de Combustível](images/posto.gif "Cadastro de Posto de Combustível") <br />
 _Figura 6: Cadastro de Posto de Combustível_
 
 #### Combustível
 
-Os combustíveis oferecidos pelo estabelecimento depende do posto, alguns poderão ter apenas diesel S-500, outros apenas S-10, alguns terão os dois. Tem posto que só vende gasolina comum e não tem aditivada, enfim depende do posto. 
+Os combustíveis oferecidos pelo estabelecimento dependem do posto; alguns poderão ter apenas diesel S-500, outros apenas S-10, alguns terão os dois. Tem posto que só vende gasolina comum e não tem aditivada, enfim depende do posto. 
 
 Na demostração de cadastro de combustível podemos também observar o seletor de quantidade de registros exibidos atuando.
 
