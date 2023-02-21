@@ -128,8 +128,8 @@ _Figura 9: Estrutura do Projeto_
 
 Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas para agrupar funcionalidades em comum. 
 
-![Namespace Domain](images/domain.png)<br>
-_Figura 10: namespace Domain_
+![Namespace Domain](images/domain.png "Namespace Domain") <br />
+_Figura 10: Namespace Domain_
 
 #### Domain
 
