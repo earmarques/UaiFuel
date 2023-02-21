@@ -36,13 +36,10 @@ Felizmente o nosso projeto recebeu a maior nota da turma. A documentação forma
 
 **_Observação:_** Os scripts de geração do banco, criação de _views_, de _store procedure_ e inserções iniciais de dados estão na pasta `scripts_db`. Basta seguir a ordem de execução indicada no nome do arquivo.
 
-<br />
 
 ### Responsivo
 
 A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
-
-<br />
 
 ### Menu Principal
 
@@ -51,8 +48,6 @@ A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, se
 |![Menu expandido](images/menu.png "a) Menu expandido") | ![Menu compactado](images/menu_compactado.png "b) Menu compactado") | 
 
 _Figura 1: Menu principal responsivo_
-
-<br />
 
 ### Pesquisas e Filtros
 
@@ -63,7 +58,6 @@ Além do filtro do resultado retornado, fizemos uma tela específica para pesqui
 ![Pesquisa de Abastecimentos](images/pesquisa.gif "Pesquisa de Abastecimentos") <br />
 _Figura 2: Pesquisa de Abastecimentos_
 
-<br />
 
 ### Login
 
@@ -72,7 +66,6 @@ Após a autenticação do usuário surge uma barra superior, oferecendo o menu n
 ![Tela de login](images/login.gif "Tela de login") <br />
 _Figura 3: Tela de login_
 
-<br />
 
 ### Cadastros Básicos
 
@@ -104,7 +97,6 @@ Na demostração de cadastro de combustível da figura 7, também podemos observ
 ![Cadastro de Combustível](images/combustivel.gif "Cadastro de Combustível") <br />
 _Figura 7: Cadastro de Combustível_
 
-<br />
 
 ### Formulário N:N
 
@@ -120,12 +112,10 @@ _Figura 8: Cadastro de Abastecimento_
 
 O Microsoft Visual Studio tem um _template_ de projeto MVC (_Model-View-Controller_) para C# que utilizamos como base para o nosso projeto. 
 
-<br />
 
 ### View
 Os arquivos de estilização e javascript ficam na pasta `wwwroot`. Na pasta `Views` ficam os arquivos _Razor_ (cshtml) com seus _scriptlets_ de servidor embutido, usado pelo VB.NET para gerar as páginas html e fazer a interação com o usuário; basicamente teremos um arquivo cshtml para cada ação do controlador. 
 
-<br />
 
 ### Controller
 Na pasta `Controller` temos os controladores da aplicação, onde são definidas as ações (`ActionResult`) que consomem os serviços da camada `Model` e direcionam o fluxo da aplicação. 
@@ -133,7 +123,6 @@ Na pasta `Controller` temos os controladores da aplicação, onde são definidas
 ![Figura: Estrutura do Projeto](images/arquitetura.png "Estrutura do Projeto")<br>
 _Figura: Estrutura do Projeto_
 
-<br />
 
 ### Model
 
