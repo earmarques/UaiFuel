@@ -36,11 +36,23 @@ Felizmente o nosso projeto recebeu a maior nota da turma. A documentação forma
 
 ### Responsivo
 
-A aplicação web UaiFuel se adapta a qualque dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
+A aplicação web UaiFuel se adapta a qualquer dispositivo de visualização, seja em um desktop de PC, um tablet ou celular. 
+
+### Menu Principal
 
 | a) Menu expandido |  b) Menu compactado |
 |:-:|:-:|
-|![Menu expandido](images/menu.png "Menu expandido") | ![Menu compactado](images/menu_compactado.png "Menu compactado") |
+|![Menu expandido](images/menu.png "a) Menu expandido") | ![Menu compactado](images/menu_compactado.png "b) Menu compactado") | <br />
+_Figura 1: Menu principal responsivo_
+
+### Pesquisas e Filtros
+
+Em todas as listagens de dados existe um filtro de caracteres dos campos visualizados, um seletor de quantidade de linhas do resultado exibidas e ainda, em cada cabeçalho de coluna, um ordenador crescente ou decrescente que alterna a forma de ordenação a cada clique. Veremos estes comportamentos nas demonstrações a seguir.
+
+Além do filtro do resultado retornado, fizemos uma tela de pesquisa de abastecimentos, em que combinamos as opões fornecidas pelo usuário com um "AND" lógico nos conjuntos. Podemos pesquisar os abastecimentos pelo posto de combusível, o motorista que efetuou o abastecimento, pela placa do veículo, pelo status do abastecimento e por um período fornecendo data inicial e final. 
+
+![Pesquisa de Abastecimentos](images/pesquisa.gif "Pesquisa de Abastecimentos") <br />
+_Figura 2: Pesquisa de Abastecimentos_
 
 
 ---
