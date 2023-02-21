@@ -34,6 +34,8 @@ Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combus
 
 Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal com todos os diagramas e etc. pode ser encontrada na pasta `docs` ou acessada diretamente aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
 
+Sobre o nome UaiFuel, "fuel" é combustível em inglês, "uai" é uma expressão típica caipira que remete a origem dos criadores. Com a combinação das duas, fizemos uma paródia fonético com marcas consagradas do mercado, como iPad, iFood, iPhone, trazendo uma conotação bem humorada e carismática a marca.        
+
 **_Observação:_** Os scripts de geração do banco, criação de _views_, de _store procedure_ e inserções iniciais de dados estão na pasta `scripts_db`. Basta seguir a ordem de execução indicada no nome do arquivo.
 
 
