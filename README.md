@@ -267,7 +267,7 @@ class AbastecimentoDAO : DAOConnection, IDAO<Abastecimento>
 ```
 _Listagem 5: Objetos DAO devem implementar os métodos CRUD da interface IDAO_
 
-Revendo a listagem 2, podemos entender agora a importância do uso do _Generics_. O DAO deve ter um acoplamento forte com o tipo de objeto de domínio que ele manipula. Isso impede o `VeiculoDAO` de manipular qualquer outro objeto que não seja `Veiculo`.
+Revendo a listagem 2, podemos entender agora a importância do uso do _Generics_. O DAO deve ter um acoplamento forte com o tipo de objeto de domínio que ele manipula. Isso impede, por exemplo, que o `VeiculoDAO` manipule qualquer outro objeto do domínio que não seja `Veiculo`.
 
 
 #### Service
