@@ -85,7 +85,7 @@ _Figura 5: Cadastro de Veículo_
 
 #### Posto de Combustível
 
-Na animação da figura 6, vemos o filtro de caracteres atuando, e quando estamos preenchendo o endereço, temos um caso de "lista suspensa dependente", onde uma vez definida a unidade federativa, apenas as cidades daquele estado selecionado serão oferecidas ao usuário.
+Na animação da figura 6, vemos o filtro de caracteres trabalhando e quando estamos preenchendo o endereço, temos um caso de "lista suspensa dependente", onde uma vez definida a unidade federativa, apenas as cidades daquele estado selecionado serão oferecidas ao usuário.
 
 ![Cadastro de Posto de Combustível](images/posto.gif "Cadastro de Posto de Combustível") <br />
 _Figura 6: Cadastro de Posto de Combustível_
