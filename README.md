@@ -135,7 +135,7 @@ _Figura 11: Camada Controller_
 
 ### Model
 
-Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas para agrupar funcionalidades em comum. 
+Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas, para agrupar funcionalidades em comum. 
 
 ![Camada Model](images/model.png "Camada Model")<br>
 _Figura 12: Camada Model_
