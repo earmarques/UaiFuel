@@ -8,7 +8,7 @@ Eu como professor bem sei quanto o conhecimento humano é uno, inteiro e integra
 
 No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas: Comunicação e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Metodologia da Pesquisa Científico-tecnológica.
 
-O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores em junho de 2021 no 4° período do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
+O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores em junho de 2021, no 4° período do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
 
 ---
 
@@ -135,7 +135,7 @@ _Figura 11: Camada Controller_
 
 ### Model
 
-Esta é camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas, para agrupar funcionalidades em comum. 
+Esta é a camada do MVC mais interessante e a que iremos aprofundar, porque representa o negócio e é a camada responsável pelo acesso e manipulação dos dados. A camada `Model` está subdivida em vários `namespaces` ou pastas, para agrupar funcionalidades em comum. 
 
 ![Camada Model](images/model.png "Camada Model")<br>
 _Figura 12: Camada Model_
