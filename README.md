@@ -6,7 +6,7 @@ UaiFuel é um gerenciador de abastecimentos para postos de combustível franquea
 
 Eu como professor bem sei quanto o conhecimento humano é uno, inteiro e integral, a separação em várias disciplinas é uma mera divisão didática. A soma das partes não é igual ao todo, na verdade ela o diminui. Reconheço três níveis de saber: informação, conhecimento e sabedoria. Há que se aprender não só as partes isoladas, mas compreender como se correlacionam. 
 
-No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas Comunicação e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Métodos em Pesquisa Científica e Tecnológica.
+No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas Comunicação e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Metodologia da Pesquisa Científico-tecnológica.
 
 O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores em junho de 2021 no 4° semestre do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
 
