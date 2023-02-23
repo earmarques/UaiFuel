@@ -6,7 +6,7 @@ UaiFuel é um gerenciador de abastecimentos para postos de combustível franquea
 
 Eu como professor bem sei quanto o conhecimento humano é uno, inteiro e integral, a separação em várias disciplinas é uma mera divisão didática. A soma das partes não é igual ao todo, na verdade ela o diminui. Reconheço três níveis de saber: informação, conhecimento e sabedoria. Há que se aprender não só as partes isoladas, mas compreender como se correlacionam. 
 
-No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas Comunicação e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Metodologia da Pesquisa Científico-tecnológica.
+No objetivo de oportunizar uma formação mais holística, a Fatec, no curso de Análise e Desenvolvimento de Sistemas, promove o chamado ***Projeto Interdisciplinar*** na sua grade de formação. Envolve várias disciplinas, são elas: Comunicação e Expressão, Engenharia de Software, Sistemas de Informação, Estrutura de Dados, Linguagem de Programação, Banco de Dados, Programação Orientada a Objetos e Metodologia da Pesquisa Científico-tecnológica.
 
 O que apresento neste repositório foi o sistema submetido ao Colegiado de Professores em junho de 2021 no 4° semestre do curso, desenvolvido pela minha equipe formada por mim, Éder Marques e Elias Rebouças, Estevan Lago e Pedro Alves.   
 
@@ -34,7 +34,7 @@ Desenvolvemos um sistema de gerenciamento de abastecimento para postos de combus
 
 Felizmente o nosso projeto recebeu a maior nota da turma. A documentação formal com todos os diagramas e etc. pode ser encontrada na pasta `docs` ou acessada diretamente aqui: [UaiFuel_Inter2_final.pdf](https://github.com/earmarques/UaiFuel/blob/main/docs/UaiFuel_Inter2_final.pdf). 
 
-Sobre o nome UaiFuel, "fuel" é combustível em inglês, "uai" é uma expressão típica caipira que remete a origem dos criadores. Com a combinação das duas, fizemos uma paródia fonético com marcas consagradas do mercado, como iPad, iFood, iPhone, trazendo uma conotação bem humorada e carismática a marca.        
+Sobre o nome UaiFuel, "fuel" é combustível em inglês, "uai" é uma expressão típica caipira que remete a origem dos criadores. Com a combinação das duas, fizemos uma paródia fonética com marcas consagradas do mercado, como iPad, iFood, iPhone, trazendo uma conotação bem humorada e carismática a marca.        
 
 **_Observação:_** Os scripts de geração do banco, criação de _views_, de _store procedure_ e inserções iniciais de dados estão na pasta `scripts_db`. Basta seguir a ordem de execução indicada no nome do arquivo.
 
