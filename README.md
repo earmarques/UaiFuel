@@ -272,7 +272,9 @@ Revendo a listagem 2, podemos entender agora a importância do uso do _Generics_
 
 #### Service
 
-A camada de serviço é a interface entre `Model` e `Controller`. O controlador recebe as requisições do usuário e se comunica com o modelo através dos serviços oferecidos na subcamada _service_. Service detém a semântica da aplicação, todas as regras ou lógica de negócio estão nesta camada. A camada _service_ sabe avaliar o nível de gravidade de uma exceção lançada, seja uma exceção do banco ou da aplicação, se é grave ou apenas uma advertência - aliás criamos a classe `AlertType` para esta finalidade. Nós criamos algumas classes `Exceptions` para auxiliar na identificação e posterior tratamento, como `UniquePlacaException` que cuida da duplicação de placas de veículos. A camada Service é provedora de serviços ao controlador e é cliente da camada DAO.
+A camada de serviço é a interface entre `Model` e `Controller`. O controlador recebe as requisições do usuário e se comunica com o modelo através dos serviços oferecidos na subcamada _service_. Service detém a semântica da aplicação, todas as regras ou lógica de negócio estão nesta camada. 
+
+A camada _service_ sabe avaliar o nível de gravidade de uma exceção lançada, seja uma exceção do banco ou da aplicação, se é grave ou apenas uma advertência - aliás criamos a classe `AlertType` para esta finalidade. Nós criamos algumas classes `Exceptions` para auxiliar na identificação e posterior tratamento, como `UniquePlacaException` que cuida da duplicação de placas de veículos. A camada Service é provedora de serviços ao controlador e é cliente da camada DAO.
 
 ![Namespace Service](images/service.png "Namespace Service") <br />
 _Figura 15: Namespace Service_
