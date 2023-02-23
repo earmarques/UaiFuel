@@ -210,7 +210,7 @@ Não usamos nenhum _framework_ de mapeamento objeto-relacional, tinhamos menos d
 ![Namespace DAO](images/dao.png "Namespace DAO") <br />
 _Figura 14: Namespace DAO_
 
-Os objetos DAO tem a responsabilidade de acessar e manipular os objetos de domínio. O acrônimo CRUD (`Create`, `Read`, `Update` , `Delete`) enumera as ações essencias que deve executar sobre os dados das entidades persistidas no banco de dados: criar, ler e listar, atualizar e apagar. Apesar de vermos alguns projetos com regras de negócio espalhadas pelas camadas da aplicação, parte na camada _Service_ e parte na camada DAO, dentro do que estudamos nós entendemos como sendo um erro. 
+Os objetos DAO tem a responsabilidade de acessar e manipular os objetos de domínio. O acrônimo CRUD (`Create`, `Read`, `Update` , `Delete`) enumera as ações essencias que o objeto DAO deve executar sobre os dados das entidades persistidas no banco de dados: criar, ler e listar, atualizar e apagar. Apesar de vermos alguns projetos com regras de negócio espalhadas pelas camadas da aplicação, parte na camada _Service_ e parte na camada DAO, dentro do que estudamos nós entendemos como sendo um erro. 
 
 A programação orientada a objetos orienta o isolamento de responsabilidade, e a camada DAO não deve ter nenhuma regra de negócio, ela é responsável exclusivamente por fazer a comunicação entre o banco de dados e a aplicação. Qualquer exceção lançada na execução dos métodos do DAO não devem ser tratadas por ele, quem deve ter a sapiência de avaliar a gravidade da _exception_ e dar o devido tratamento é a camada de serviço.  
 
