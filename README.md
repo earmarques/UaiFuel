@@ -290,7 +290,7 @@ Seus nomes costumam ser a combinação da página da _view_ do objeto de domíni
 _Figura 16: Namespace ViewModel_
 
 
-`PesquisaAbastecimentoViewModel` é um bom exemplo de DTO híbrido; só tem estado (_properties_), sem comportamento (métodos). Na listagem podemos ver que esse ViewModel possui informações parciais de vários objetos de domínio misturadas, todos os campos necessários ao carregamento da página de pesquisa de abastecimento.
+`PesquisaAbastecimentoViewModel` é um bom exemplo de DTO com objetos de domínio mesclados; só tem estado (_properties_), sem comportamento (métodos). Na listagem podemos ver que esse ViewModel possui informações parciais de vários objetos de domínio misturadas, todos os campos necessários ao carregamento da página de pesquisa de abastecimento.
 
 ```C#
 namespace UaiFuel.Models.ViewModel
